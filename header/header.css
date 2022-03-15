@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka&family=PT+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200&display=swap');
 *{
     padding: 0;
     margin: 0;   
@@ -15,12 +16,19 @@ header{
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    display: flex;
+    align-items: center;
 }
-.space-logo .logo{
-    height: 6rem;
+.space-logo h2{
+    margin-left: 2rem;
+    font-family: 'Titillium Web', sans-serif;
+    color: #0D3F4D;
+    font-size: 3rem;
 }
-.space-logo .logo img{
-    height: 100%;
+.space-logo h3{
+    margin: 1rem 0 0 3rem;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 1rem;
 }
 header nav{
     height: 2.5rem;
