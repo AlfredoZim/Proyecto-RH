@@ -28,6 +28,7 @@ header{
 .space-logo h3{
     margin: 1rem 0 0 3rem;
     font-family: 'Titillium Web', sans-serif;
+    color: #0D3F4D;
     font-size: 1rem;
 }
 header nav{
@@ -52,4 +53,70 @@ header nav .item{
 header nav a:hover{
     background: rgba(255, 255, 255, .1);
     transition: .3s;
+}
+.menu-bars{
+    display: none;
+}
+.menu-bars #slide-menu{
+    display: none;
+}
+header .responsive-menu{
+    display: none;
+}
+@media (max-width:785px) {
+    .space-logo{
+        height: 4rem;
+    }
+    .space-logo h2{
+        font-size: 2rem;
+    }
+    .space-logo h3{
+        font-size: .8rem;
+    }
+    header nav .left{
+        display: none;
+    }
+    .menu-bars{
+        display: block;
+        padding: .5rem;
+    }
+    .menu-bars #slide-menu{
+        display: block;
+        padding: .2rem .4rem;
+        font-size: 1.6rem;
+        background: none;
+        color: whitesmoke;
+        border: none;
+        cursor: pointer;
+        border-radius: .2rem;
+    }
+    .menu-bars #slide-menu:hover{
+        background: rgba(255, 255, 255, .1);
+        transition: .4s;
+    }
+    header .responsive-menu{
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 100%;
+        background: rgba(0, 0, 0, .3);
+        text-align: center;
+        transition: .5s;
+        left: -100%;
+    }
+    header .show-menu{
+        left: 0;
+        transition: .5s;
+    }
+    header .responsive-menu a{
+        text-decoration: none;
+        padding: 1.5rem 0;
+        color: whitesmoke;
+        font-size: 1.2rem;
+        font-family: 'Fredoka', sans-serif;
+    }
+    header .responsive-menu a:hover, header .responsive-menu a:active{
+        background: rgba(0, 0, 0, .1);
+    }
 }
