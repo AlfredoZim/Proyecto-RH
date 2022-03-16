@@ -50,6 +50,9 @@ th,td{
 tbody tr:nth-child(odd){
     background-color: rgba(1, 203, 184, .3);
 }
+tbody tr:hover{
+    background: rgba(231, 136, 160, .5);
+}
 @media (max-width:992px){
     .container section{
         align-items: center;
