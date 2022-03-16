@@ -38,7 +38,6 @@
 
     <script src="header/header-actions.js"></script>
 </body>
-</html>
 ```
 <ul><li><p>
       En este hacemos uso de Fontawesome, por lo que es indispensable, de igual manera se deberá agregar el siguiente @import en la hoja de estilos de tu página actual
