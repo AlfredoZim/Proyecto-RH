@@ -100,7 +100,7 @@ header .responsive-menu{
         flex-direction: column;
         height: 100vh;
         width: 100%;
-        background: rgba(0, 0, 0, .3);
+        background: rgba(0, 0, 0, .8);
         text-align: center;
         transition: .5s;
         left: -100%;
@@ -117,6 +117,6 @@ header .responsive-menu{
         font-family: 'Fredoka', sans-serif;
     }
     header .responsive-menu a:hover, header .responsive-menu a:active{
-        background: rgba(0, 0, 0, .1);
+        background: rgba(255, 255, 255, .2);
     }
 }
