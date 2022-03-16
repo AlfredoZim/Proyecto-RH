@@ -1,9 +1,7 @@
 <h1 align="center"> Proyecto - RH 👨‍💻 </h1>
 <p>Aquí se encontrarán los estandares creados por el equipo, así como la explicación del uso de las herramientas y componentes utilizados</p>
-<br><br>
-
+<br>
 <h2>Elementos externos de ayuda</h2>
-
 <h4>Google Fonts</h4>
 <ul><li><p>
       Para consular distintos tipos de fuentes da <a href="https://fonts.google.com/">Click</a>.
