@@ -44,7 +44,7 @@
 </p></li></ul>
 
 ```css
-@import url("header/header.css");
+@import url("../header/header.css");
 ```
 ## BankIndra
 
