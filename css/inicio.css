@@ -63,3 +63,8 @@ tbody tr:hover{
         width: 90%;
     }
 }
+@media (max-width: 576px){
+    .container section .todays-interview, .container section .applicant-woexam{
+        width: 100%;
+    }
+}
