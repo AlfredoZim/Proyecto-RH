@@ -31,12 +31,12 @@
 <head>
     <title>BankIndra</title>
     <script src="https://kit.fontawesome.com/9cc9a09708.js" crossorigin="anonymous"></script>
-    <script src="header/header.js"></script>
+    <script src="/components/header/header.js"></script>
 </head>
 <body>
     <my-header></my-header>
 
-    <script src="header/header-actions.js"></script>
+    <script src="/components/header/header-actions.js"></script>
 </body>
 ```
 <ul><li><p>
@@ -44,7 +44,7 @@
 </p></li></ul>
 
 ```css
-@import url("../header/header.css");
+@import url("../components/header/header.css");
 ```
 ## BankIndra
 
