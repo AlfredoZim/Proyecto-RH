@@ -6,20 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modales</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/1cd743187f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <button id="registered">Usuario registrado</button>
-    <button id="delete">Borrar</button>
+    <pp-modal>
+        <button></button>
+        <h1 slot="header">Error</h1>
+        <p>No ha sido posible añadir los elementos</p>
+    </pp-modal>
 
-    <div id="m-register" class="modal-registered">
-        <div class="modal">
-            <h1 class="modal-title">Usuario registrado con exito!</h1>
-            <p class="modal-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, saepe!
-            </p>
-            <button id="close">Cerrar</button>
-        </div>
-    </div>
-    <script src="app.js"></script>
+    <success-modal>
+        <h1 slot="header">EXITOSO</h1>
+        <p>El examen ha sido añadido exitosamente</p>
+    </success-modal>
+          
+    <script src="./modal.js"></script>
+    <script src="./success-modal.js"></script>
+
+    
+    <!-- <script src="./app.js"></script> -->
+    
+    <!-- <button id="button-error" onclick="<error-modal></error-modal>">Error</button>
+    <div id="error-b"></div> -->
+
+
 </body>
 </html>

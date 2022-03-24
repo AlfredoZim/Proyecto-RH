@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&family=PT+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200&display=swap');
+*{
+    padding: 0;
+    margin: 0;   
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1rem;
+}
+
+.sec-log{
+    display: flex;
+}
+
+.back-img{
+    background-image: linear-gradient(#2e272765,#5d5e5f17),url('./img/workspace.jpg');
+    background-size: cover;
+    background-repeat:inherit;
+    width: 50%;
+    height: 100vh;
+    background-position: 100% 50%;
+}
+
+.sec-form{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: rem;
+}
+
+.sec-title{
+    margin: 2rem auto;
+    max-width: 100%;
+    text-align: center;
+    padding: 30px;
+}
+
+.sec-title > h2{
+    font-size: 2em;
+    text-align: center ;
+}
+
+.sec-data{  
+    background-color: #F1F1F1;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.sec-data > p,a{  
+    padding: 1.5rem 0;
+}
+
+
+.sec-data > label,input{
+    margin:1rem;
+    padding: 0.3rem;
+    width: 15rem;
+}
+
+button{
+    margin: 1rem auto 2rem auto;
+    padding: 0.5rem;
+    width: 80%;
+    color: white;
+    background-color: #0D3F4D;
+    border: none;
+}
+
+.sec-form > a{
+    text-align: center;
+}
+
+/*Reset window styles*/
+
+.back-imgRes{
+    background-color: #0D3F4D;
+    background-size: cover;
+    background-repeat:inherit;
+    width: 50%;
+    height: 100vh;
+    background-position: 100% 50%;
+}
+
+.back-imgRes > img{
+    display: block;
+    height: 300px ;
+    width: 300px;
+    margin: 3rem auto;
+}
+
+
+/*---------------*/
+
+@media (max-width: 768px){
+    .sec-title{
+        max-width: 90%;
+    }
+    .sec-title > h2{
+        font-size: 1.5em;
+    }
+
+}
+
+@media (max-width: 992px){
+    .sec-log{
+        flex-direction: column;
+    }
+
+    .back-img{
+        width: 100%;
+        height: 40vh;
+    }
+
+    .sec-form{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .sec-title{
+        position: absolute;
+        top: 35%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        color: white;
+    }
+
+    .sec-data{
+        height: auto;
+        margin: 3rem auto;
+    }
+
+    .sec-data > label,input{
+        margin:1rem 2rem;
+    }
+
+    /*Reset window styles*/
+
+    .back-imgRes{
+        width: 100%;
+        height: 40vh;
+    }
+
+    .back-imgRes > img{
+        height: 150px ;
+        width: 150px;
+    }
+
+   
+    
+}
+
+  

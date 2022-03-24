@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../header/header.js"></script>
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://kit.fontawesome.com/9cc9a09708.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../header/header.css">
+    <title>Document</title>
+</head>
+<body>
+    <header-logo></header-logo>
+    <section class="sec-log">
+        <div class="back-imgRes">
+            <img src="./img/form.png"> 
+        </div>
+        <div class="sec-form">
+            <div class="sec-title">
+                <h2>¿Olvidaste tu contraseña?</p>
+            </div>
+            <form class="sec-data" method="" id="formReset">
+                <p>Ingresa tu correo electrónico</p>
+                <input type="email" name="user" id="emailUser" placeholder="email@example.com"> <br><br>
+                <button name="send" id="bSend" onclick="resetForm()">Reiniciar contraseña</button>
+            </form>  
+            <a href="./index.html">Iniciar sesión</a>
+        </div>
+    </section>
+ 
+    <div id="form2" class="shadow-host"></div>
+    <!--<script src="../helpers/messageReset.js"></script> -->
+
+    <script src="../headerLogin/headerLog.js"></script>
+    <!--<script src="../helpers/reset.js" type="module"></script> -->
+    <script type="module">
+        import resetForm from '../helpers/reset.js'
+        window.resetForm = resetForm;
+    </script>
+</body>
+</html> 
