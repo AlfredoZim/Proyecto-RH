@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asignación de examenes</title>
+    <script src="https://kit.fontawesome.com/9cc9a09708.js" crossorigin="anonymous"></script>
+    <script src="../components/header/header.js"></script>
+    <link rel="stylesheet" href="../css/asignacion-examen.css">
+</head>
+<body>
+    <my-header></my-header>
+
+    <div class="container">
+        <div class="title-page">
+            <i class="fa-solid fa-user"></i>
+            <h2>INFORMACIÓN DE CONTACTO</h2>
+        </div>
+        <section>
+            <h4 class="sub-title">Datos generales</h4>
+            <div class="nombre-completo">
+                <div class="nombre">
+                    <h4>Nombre</h4>
+                    <p id="n-user">Nombre de aspirante</p>
+                </div>
+                <div class="apellido-p">
+                    <h4>Apellido paterno</h4>
+                    <p id="s-user">Apellido de aspirante</p>
+                </div>
+                <div class="apellido-m">
+                    <h4>Apellido materno</h4>
+                    <p>Apellido de aspirante</p>
+                </div>
+            </div>
+            <div class="datos-generales">
+                <div class="numero">
+                    <h4>Número telefonico</h4>
+                    <p>-52 56 2014 8183</p>
+                </div>
+                <div class="edad">
+                    <h4>Edad</h4>
+                    <p>##</p>
+                </div>
+            </div>
+            <h4 class="sub-title">Dirección</h4>
+            <div class="direccion">
+                <div class="direccion-calle">
+                    <div class="calle">
+                        <h4>Calle</h4>
+                        <p>Calle del aspirante</p>
+                    </div>
+                    <div class="ext">
+                        <h4>Ext</h4>
+                        <p>###</p>
+                    </div>
+                    <div class="int">
+                        <h4>Int</h4>
+                        <p>###</p>
+                    </div>
+                </div>
+                <div class="direccion-estado">
+                    <div class="estado">
+                        <h4>Estado</h4>
+                        <p>Estado donde reside</p>
+                    </div>
+                    <div class="colonia">
+                        <h4>Colonia</h4>
+                        <p>Colonia donde reside</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="footer-section"></div>
+    </div>
+    <div class="container">
+        <div class="title-page">
+            <i class="fa-solid fa-file"></i>
+            <h2>EXAMENES</h2>
+        </div>
+        <div class="content">
+            <div class="add-exam">
+                <p>No se ha añadido ningún exámen, añade uno.</p>
+                <i class="fa-solid fa-circle-plus"></i>
+            </div>
+            <div class="select-exam">
+                <select name="exams-area">
+                    <option value="value1" selected>Seleccione el aréa del exámen</option>
+                    <option value="value1">Primera aréa</option>
+                    <option value="value2">Segunda aréa</option>
+                    <option value="value3">Tercera aréa</option>
+                </select>
+                
+                <select name="exams">
+                    <option value="value1" selected>Seleccione el exámen</option>
+                    <option value="value1">Primer exámen</option>
+                    <option value="value2">Segundo exámen</option>
+                    <option value="value3">Tercer exámen</option>
+                </select>
+            </div>
+            <div class="space-button">
+                <button class="save">
+                    Guardar
+                </button>
+            </div>
+        </div>
+        <div class="footer-section"></div>
+    </div>
+
+    <script src="../components/header/header-actions.js"></script>
+    <script src="../data/dataStorage.js"></script>
+    <script src="../js/aisgnacion-examen.js"></script>
+</body>
+</html>
