@@ -1,5 +1,0 @@
-localStorage.setItem('session', JSON.stringify(
-    {
-        "tipoUsuario": "RH",
-        "email":"joelandia@gmail.com"
-    }));
