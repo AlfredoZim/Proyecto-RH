@@ -2,7 +2,10 @@ class show_header extends HTMLElement{
     constructor(){
         super();
     }
+
     connectedCallback(){
+        
+        let session = JSON.parse( localStorage.getItem('session') );
         this.innerHTML = `
         <header>
         <div class="space-logo">
@@ -15,10 +18,14 @@ class show_header extends HTMLElement{
             </div>
             <div class="left">
                 <a href="#">INICIO</a>
-                <a href="#">ENTREVISTADORES</a>
-                <a href="#">ASPIRANTES</a>
-                <a href="#">EXÁMENES</a>
-                <a href="#">REPORTES</a>
+                `+(session.tipoUsuario == 'RH'? ` <a href="#">ENTREVISTADORES</a> `: ` `) +
+                (session.tipoUsuario == 'RH'? ` <a href="#">ASPIRANTES</a> `: ` `) +
+                (session.tipoUsuario == 'RH'? ` <a href="#">EXÁMENES</a> `: ` `) +
+                (session.tipoUsuario == 'RH'? ` <a href="#">REPORTES</a> `: ` `) +
+                `
+                
+                
+                
             </div>
             <div class="right">
                 <a h ref="#" class="item"><i class="fa-solid fa-right-to-bracket"></i></a>

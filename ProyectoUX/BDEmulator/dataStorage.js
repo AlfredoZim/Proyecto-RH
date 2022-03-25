@@ -101,6 +101,28 @@ function getElementos(tabla){
 }
 
 /**
+ * Función que obtiene un elemento de una "tabla".
+ * @param {string} tabla: Nombre de la tabla de la que se busca obtener los elementos.
+ * @param {string} id: Nombre del atributo que es id.
+ * @param {string} valor: Valor del id para el elemento a obtener
+ * @returns {Object} Elemento a buscar, en caso de no existir la tabla o el elemento se regresa un null.
+ * @author Joel Alcantara
+ */
+ function getElemento(tabla, id, valor){
+    try{
+        let elementos = getElementos(tabla);
+        if(elementos.length == 0)
+            return null;
+        for(let i = 0; i < elementos.length; i++){
+            if(elementos[i][id] == valor)
+                return elementos[i];        }
+    }catch(error){
+        console.error('Error al obtener elementos',error);
+        throw error;
+    }
+}
+
+/**
  * Función que modifica un elemento por su indice, es decir reemplaza el elemento del indice que se pasa como
  * parametro por el elemento pasado como parametro.
  * @param {String} tabla: Nombre de la tabla a la que se modificará.
@@ -115,6 +137,32 @@ function modificaElemento(tabla, elemento, index){
         localStorage.removeItem(tabla.toString());
         localStorage.setItem(tabla.toString(), JSON.stringify(elementos));
         return 1;
+    }catch(error){
+        return 0;
+    }
+}
+
+/**
+ * Función que modifica un elemento por su id.
+ * @param {String} tabla: Nombre de la tabla a la que se modificará.
+ * @param {Object} elemento: Objeto con el elemento a reemplazar.
+ * @param {String} id: Posición del elemento a reemplazar.
+ * @returns 1 si se modificó el elemento, 0 en otro caso.
+ */
+ function modificaElementoById(tabla, elemento, id){
+    try{
+        let elementos = getElementos(tabla);
+        let pos = -1;
+        for(let i = 0; i < elementos.length; i++){
+            if(elementos[i][id] === elemento[id]){
+                pos = i;
+                break;
+            }
+
+        }
+        if(pos == -1)
+            return 0;
+        return modificaElemento(tabla, elemento, pos);
     }catch(error){
         return 0;
     }

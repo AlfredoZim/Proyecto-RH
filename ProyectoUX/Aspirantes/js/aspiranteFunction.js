@@ -6,6 +6,30 @@ const formulario = document.querySelector('#formulario');
 //Indice que determina el indice del elemento que se esta modificando.
 let indexModificar = -1;
 
+function iniciaElementosGuardado(){
+    let elementos = [document.getElementById('nombre'),
+            document.getElementById('email'),
+            document.getElementById('edad'),
+            document.getElementById('telefono'),
+            document.getElementById('universidad'),
+            document.getElementById('especialidad'),
+            document.getElementById('experiencia'),
+            document.getElementById('tecnologias'),
+            document.getElementById('idiomas'),
+            document.getElementById('direccion'),
+            document.getElementById('descripcionExperiencia')
+        ];
+    document.getElementById('mensajeModal').innerHTML = '';
+    elementos.forEach(element => {
+        if(element.value.toString().trim().length === 0){
+            bandera = true;
+            document.getElementById(('error'+element.id)).innerHTML = '';
+        }
+    });
+    
+    document.getElementById('resetButton').click();
+}
+
 /**
  * Función que extrae los elementos del formulario, manda construir el objeto a guardar y 
  * ejecuta el modal con el mensaje que corresponde.
@@ -46,10 +70,15 @@ function guardarAspirante(){
 
         //Validamos los mensaje a mostrar en el modal.
         if(respuesta>0){
-            document.getElementById('mensajeModal').innerHTML = 'Información ' + (banderaEsModificacion? 'guardada':'modificada')+' exitosamente.';
+            document.getElementById('mensajeModal2').innerHTML = 'Información ' + (banderaEsModificacion? 'guardada':'modificada')+' exitosamente.';
+            document.getElementById('registered2').click();
             document.getElementById('resetButton').click();
-        }else
-            document.getElementById('mensajeModal').innerHTML = 'Este aspirante ya se encuentra registrado.';
+            document.getElementById('close2').classList.add('reload');
+        }else{
+            document.getElementById('mensajeModal2').innerHTML = 'Este aspirante ya se encuentra registrado.';
+            document.getElementById('registered2').click();
+            document.getElementById('close2').classList.add('no-reload');
+        }
     }catch(error){
         console.error('Error al ingresar aspirante',error);
         document.getElementById('mensajeModal').innerHTML = 'No se ha ingresado la información';

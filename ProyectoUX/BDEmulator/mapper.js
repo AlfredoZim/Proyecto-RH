@@ -38,7 +38,12 @@ function getAspirante(elementos){
             "idiomas" : elementos[8].value,
             "direccion" : elementos[9].value,
             "descripcionExperiencia" : elementos[10].value,
-            "asignadoExamen": false
+            "asignadoExamen": 0,
+            "calificacionEntrevista" : 0,
+            "calificacionExamen" : 0,
+            "promedio" : 0,
+            "notaEntrvistador" : '',
+            "contratado" : false
     }
     return aspirante;
 }

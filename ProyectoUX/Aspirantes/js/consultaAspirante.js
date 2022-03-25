@@ -79,13 +79,13 @@ function llenaTabla(){
             let row_2_data_6 = document.createElement('td');
             row_2_data_6.innerHTML = element['experiencia'];
             let row_2_data_7 = document.createElement('td');
-            row_2_data_7.innerHTML = element['asignadoExamen']? "Asignado":"Sin Asignación";
+            row_2_data_7.innerHTML = element['asignadoExamen']==1? "Asignado":element['asignadoExamen']==2? "Realizado":"Sin Asignación";
 
             
             let row_2_data_8 = document.createElement('td');
             let row_imgMod = document.createElement('img');
             let row_a_mod = document.createElement('a');
-            row_a_mod.href = "../Captura/guardaAspirante.html"
+            //row_a_mod.href = "../Captura/guardaAspirante.html"
             row_imgMod.src = "../../img/modificar.jpg";
             row_imgMod.classList.add('a-modified');
             row_imgMod.id = ("button-img-"+index);
@@ -98,7 +98,7 @@ function llenaTabla(){
             row_imgElim.id = ("deleted-img-"+index);
             
             let row_a_elim = document.createElement('a');
-            row_a_elim.href = "../Consulta/consultaAspirantes.html"
+            //row_a_elim.href = "../Consulta/consultaAspirantes.html"
             
             row_a_elim.appendChild(row_imgElim);
 
@@ -161,6 +161,8 @@ function showAllData(){
     }
 }
 
+let indexAEliminar;
+
 /**
  * Funcion que se encarga de dejar todos los posibles eventos de click en escucha para los elementos de eliminación
  * validando que renglon fue el seleccionado.
@@ -172,9 +174,9 @@ function listenDelChoosed(){
             try{
                 el.addEventListener("click", e => {
                     let id = e.target.getAttribute("id");
-                    let indexTocado = id.toString().substring(id.lastIndexOf('-')+1);
-                    
-                    eliminaElementoPorIndice('aspirante', indexTocado);
+                    indexAEliminar = id.toString().substring(id.lastIndexOf('-')+1);
+                    document.getElementById('mensajeModal3').innerHTML = '¿Esta seguro de eliminar el registro?';
+                    document.getElementById('registered3').click();
                 });
             }catch(error){
 
@@ -198,6 +200,8 @@ function listenModChoosed(){
                     let id = e.target.getAttribute("id");
                     let indexTocado = id.toString().substring(id.lastIndexOf('-')+1);
                     localStorage.setItem('deboModificar', indexTocado);
+                    llenaModificar();
+                    modal_registry.classList.add('show');
                 });
             }catch(error){
 
@@ -217,11 +221,16 @@ function listenModChoosed(){
 function completaDatos(index){
     let elemento = elementos[index];
     return `<div>
-        <label>Telefono:`+ elemento['telefono']+`</label><br>
-        <label>Especialidad:`+ elemento['especialidad']+`</label><br>
-        <label>Idiomas:`+ elemento['idiomas']+`</label><br>
-        <label>Direccion:`+ elemento['direccion']+`</label><br>
-        <label>Descripción de Experiencia:`+ elemento['descripcionExperiencia']+`</label><br>
+        <label>Telefono: `+ elemento['telefono']+`</label><br>
+        <label>Especialidad: `+ elemento['especialidad']+`</label><br>
+        <label>Idiomas: `+ elemento['idiomas']+`</label><br>
+        <label>Direccion: `+ elemento['direccion']+`</label><br>
+        <label>Descripción de Experiencia: `+ elemento['descripcionExperiencia']+`</label><br>
+        <label>Calificacion Entrevista: `+ elemento['calificacionEntrevista']+`</label><br>
+        <label>Calificacion Examen: `+ elemento['calificacionExamen']+`</label><br>
+        <label>Calificacion General: `+ elemento['promedio']+`</label><br>
+        <label>Notas Entrevistador: `+ elemento['notaEntrvistador']+`</label><br>
+        <label>Contratado: `+ (elemento['contratado']? `SI`:`NO`)+`</label><br>
     </div>`;
 }
 

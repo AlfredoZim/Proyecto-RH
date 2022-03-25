@@ -9,4 +9,5 @@ registry.addEventListener('click', () => {
 
 close_modal_registry.addEventListener('click', () => {
     modal_registry.classList.remove('show');
+    location.reload();
 })

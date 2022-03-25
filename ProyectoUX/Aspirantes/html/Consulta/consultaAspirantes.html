@@ -21,19 +21,112 @@
 	<br>
     <script></script>
 	<div class="divImg">
-        <a href="../Captura/guardaAspirante.html"><img src="../../img/agregarAspirante.png" alt="" class="imagen-agregar"></a>
+        <a id="registered" onclick="iniciaElementosGuardado()" ><img src="../../img/agregarAspirante.png" alt="" class="imagen-agregar"></a>
     </div>
 	<br>
-
+    
     <div id="m-register" class="modal-registered">
         <div class="modal">
+            <h1>Registro de Aspirante</h1>
+
             <h1 class="modal-title" id="mensajeModal"></h1>
 			<br>
-            <button id="close">Cerrar</button>
+            <form id="formulario">
+                <div class="divDatos">
+                    <label for="nombre">*Nombre Completo:</label><br>
+                    <input id="nombre" type="text" name="nombre-aspirante" maxlength="100" minlength="1" onblur="validaElemento('nombre')" ><br>
+                    <label id="errornombre" for="nombre" class="mensajeError"></label><br>
+                </div>
+                <div class="divDatos">
+                    <label for="email">*Correo Electronico:</label><br>
+                    <input id="email" type="text" name="email-aspirante" maxlength="30" minlength="1" onblur="validaElemento('email')"><br>
+                    <label id="erroremail" for="email" class="mensajeError"></label><br>
+                </div>
+                <div class="divDatos">
+                    <label for="edad">*Edad:</label><br>
+                    <input id="edad" type="number" name="edad-aspirante" maxlength="2" minlength="1" onblur="validaElemento('edad')" min="18"><br>
+                    <label id="erroredad" for="edad" class="mensajeError"></label><br>
+                </div>
+                <div class="divDatos">
+                    <label for="telefono">*Teléfono:</label><br>
+                    <input id="telefono" type="number" name="telefono-aspirante" maxlength="10" minlength="1" onblur="validaElemento('telefono')"><br>
+                    <label id="errortelefono" for="telefono" class="mensajeError"></label><br>
+                </div>
+                <div class="divDatos">
+                    <label for="universidad">*Universidad:</label><br>
+                    <input id="universidad" type="text" name="universidad-aspirante" maxlength="50" minlength="1" onblur="validaElemento('universidad')"><br>
+                    <label id="erroruniversidad" for="universidad" class="mensajeError"></label><br>
+                </div>
+                <div class="divDatos">
+                    <label for="especialidad">*Especialidad:</label><br>
+                    <input id="especialidad" type="text" name="especialidad-aspirante" maxlength="30" minlength="1" onblur="validaElemento('especialidad')"><br>
+                    <label id="errorespecialidad" for="especialidad" class="mensajeError"></label><br>
+                </div>
+                <div class="divDatos">
+                    <label for="experiencia">*Años de Experiencia:</label><br>
+                    <input id="experiencia" type="number" name="experiencia-aspirante" maxlength="2" minlength="1" onblur="validaElemento('experiencia')"><br>
+                    <label id="errorexperiencia" for="experiencia" class="mensajeError"></label><br>
+                </div>
+                <div class="divDatos">
+                    <label for="tecnologias">*Tecnologías que domina:</label><br>
+                    <input id="tecnologias" type="text" name="tecnologias-aspirante" maxlength="300" minlength="1" onblur="validaElemento('tecnologias')"><br>
+                    <label id="errortecnologias" for="tecnologias" class="mensajeError"></label><br>
+                </div>
+                <div class="divDatos">
+                    <label for="idiomas">*Idiomas y Nivel:</label><br>
+                    <input id="idiomas" type="text" name="idiomas-aspirante" maxlength="300" minlength="1" onblur="validaElemento('idiomas')"><br>
+                    <label id="erroridiomas" for="idiomas" class="mensajeError"></label><br>
+                </div>
+                <div class="divDatos">
+                    <label for="direccion">*Dirección:</label><br>
+                    <input id="direccion" type="text" name="direccion-aspirante" maxlength="500" minlength="1" onblur="validaElemento('direccion')"><br>
+                    <label id="errordireccion" for="direccion" class="mensajeError"></label><br>
+                </div>
+                <div class="divDatos">
+                    <label for="descripcionExperiencia">*Descripción de Experiencia Laboral:</label><br>
+                    <input id="descripcionExperiencia" type="text" name="descripcionExperiencia-aspirante" maxlength="500" minlength="1" onblur="validaElemento('descripcionExperiencia')"><br>
+                    <label id="errordescripcionExperiencia" for="descripcionExperiencia" class="mensajeError"></label><br>
+                </div class="divDatos">
+                <br>
+                <div></div>
+                <div class="divButton">
+                    <input id="resetButton" type="reset" value="Borrar información">
+                </div>
+            </form>
+            <div class="divButton">
+                <button onclick="guardarAspirante()">Guardar Datos</button>
+                <button id="close">Cerrar</button>
+            </div>
         </div>
     </div>
-    
+
+    <span id="registered2"></span>
+
+    <div id="m-register2" class="modal-registered2">
+        <div class="modal2">
+            <h1 class="modal-title2" id="mensajeModal2"></h1>
+            <div class="divButton">
+                <button id="close2">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <span id="registered3"></span>
+
+    <div id="m-register3" class="modal-registered3">
+        <div class="modal3">
+            <h1 class="modal-title3" id="mensajeModal3"></h1>
+            <div class="divButton">
+                <button id="delete3">Aceptar</button>
+                <button id="close3">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/app.js"></script>
     <script src="../../../BDEmulator/dataStorage.js"></script>
 	<script src="../../js/consultaAspirante.js"></script>
+	<script src="../../js/aspiranteFunction.js"></script>
+	<script src="../../../BDEmulator/mapper.js"></script>
 </body>
 </html>
