@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&family=PT+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+body{
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url("double-bubble-outline.png");
+    background-repeat: repeat;
+}
+/*_______COLORES____________________________________*/
+.colores{
+    display: flex;
+    justify-content: space-around;
+    margin: .5rem 0;
+    height: 10rem;
+    width: 100%;
+}
+.colores div{
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5rem;
+    border: 1px solid grey;
+}
+.colores .rosa{
+    background: #FDE3D4;
+}
+.colores .verde{
+    background: #004253;
+}
+.colores .azul{
+    background: #639FCB;
+}
+.colores .gris{
+    background: #E8E8E8;
+}
+/*_______ICONOS____________________________________*/
+.iconos{
+    border: 1px solid grey;
+    border-radius: 2rem;
+    height: 8rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: .5rem 0;
+}
+.iconos div{
+    align-items: center;
+    background: rgba(0, 0, 0, .1);
+    border-radius: .2rem;
+    display: flex;
+    height: 3rem;
+    justify-content: center;
+    font-size: 2rem;
+    width: 3rem;
+}
+iconos div i{
+    color: #000;
+}
+/*_______BOTONES____________________________________*/
+.botones{
+    border: 1px solid grey;
+    border-radius: 2rem;
+    width: 100%;
+    height: 10rem;
+    display: flex;
+    margin: .5rem 0;
+    justify-content: space-around;
+    align-items: center;
+}
+.botones button{
+    align-items: center;
+    font-family: sans-serif;
+    border-radius: .5rem;
+    background-color: #004253;
+    box-shadow: .15rem .15rem .15rem rgba(0, 0, 0, .2);
+    border: 1px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    font-size: 1rem;
+    height: 2rem;
+    width: 10rem;
+}
+.botones button:focus, .botones button:hover{
+    box-shadow: .2rem .2rem .2rem rgba(0, 0, 0, .3);
+    transform: scale(1.05);
+    transition: .2s;
+}
+.botones .close-l{
+    /*Tiene las propiedades de button*/
+    background: #BD0F10;
+}
+.botones .close{
+    /*No olvides que tiene las propiedades 
+    anteriores (.botones button)*/
+    background:none;
+    border-radius: none;
+    box-shadow: none;
+    border: none;
+    color: #BD0F10;
+    cursor: pointer;
+    font-size: 2rem;
+    width: 2rem;
+}
+.botones .close:focus, .botones .close:hover{
+    /*Tiene las propiedades 
+    del button:focus&hover*/
+    box-shadow:none;
+}
+/*_______FUENTES____________________________________*/
+.fuentes{
+    border: 1px solid grey;
+    border-radius: 1rem;
+    width: 100%;
+    height: 15rem;
+    display: flex;
+    margin: .5rem 0;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.fuentes .container{
+    align-items: center;
+    background: rgba(0, 0, 0, .1);
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+    width: 100%;
+}
+.fuentes .container .title-page{
+    align-items: center;
+    background: #0D3F4D;
+    color: whitesmoke;
+    display: flex;
+    font-family: serif;
+    height: 3rem;
+    width: 100%;
+}
+.fuentes .container .title-page i{
+    padding-left: .5rem;
+    font-size: 1.5rem;
+}
+.fuentes .container .title-page h2{
+    padding: 0 1rem;
+}
+.fuentes .container section{
+    background: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 95%;
+}
+.fuentes .container section .sub-title{
+    background: rgba(0, 0, 0, .1);
+    padding: .5rem 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fredoka', sans-serif;
+}
+.fuentes .container section p{
+    font-family: 'Fredoka', sans-serif;
+}
+.fuentes .logo{
+    font-family: 'Titillium Web', sans-serif;
+}
+@media (max-width: 576px){
+    .fuentes .container .title-page h2{
+        font-size: 1.2rem;
+    }
+}
