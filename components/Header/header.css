@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&family=PT+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200&display=swap');
+*{
+    padding: 0;
+    margin: 0;   
+    font-family: 'Fredoka', sans-serif;
+}
+header{
+    background: rgba(0, 0, 0, .2);
+    /*display: flex;*/
+}
+.space-logo{
+    width: 100%;
+    height: 6rem;
+    background-image: url("img/bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+.space-logo h2{
+    margin-left: 2rem;
+    font-family: 'Titillium Web', sans-serif;
+    color: #0D3F4D;
+    font-size: 3rem;
+}
+.space-logo h3{
+    margin: 1rem 0 0 3rem;
+    font-family: 'Titillium Web', sans-serif;
+    color: #0D3F4D;
+    font-size: 1rem;
+}
+header nav{
+    height: 2.5rem;
+    background: #0D3F4D;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+header nav a{
+    flex-direction: column;
+    color: whitesmoke;
+    text-decoration: none;
+    padding: .5rem 1rem;
+    margin: 0 .5rem;
+    border-radius: .1rem;
+}
+header nav .item{
+    background: rgba(255, 255, 255, .05);
+    cursor: pointer;
+}
+header nav a:hover{
+    background: rgba(255, 255, 255, .1);
+    transition: .3s;
+}
+.menu-bars{
+    display: none;
+}
+.menu-bars #slide-menu{
+    display: none;
+}
+header .responsive-menu{
+    display: none;
+}
+@media (max-width:992px) {
+    .space-logo{
+        height: 4rem;
+    }
+    .space-logo h2{
+        font-size: 2rem;
+    }
+    .space-logo h3{
+        font-size: .8rem;
+    }
+    header nav .left{
+        display: none;
+    }
+    .menu-bars{
+        display: block;
+        padding: .5rem;
+    }
+    .menu-bars #slide-menu{
+        display: block;
+        padding: .2rem .4rem;
+        font-size: 1.6rem;
+        background: none;
+        color: whitesmoke;
+        border: none;
+        cursor: pointer;
+        border-radius: .2rem;
+    }
+    .menu-bars #slide-menu:hover{
+        background: rgba(255, 255, 255, .1);
+        transition: .4s;
+    }
+    header .responsive-menu{
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 100%;
+        background: rgba(0, 0, 0, .8);
+        text-align: center;
+        transition: .5s;
+        left: -100%;
+    }
+    header .show-menu{
+        left: 0;
+        transition: .5s;
+    }
+    header .responsive-menu a{
+        text-decoration: none;
+        padding: 1.5rem 0;
+        color: whitesmoke;
+        font-size: 1.2rem;
+        font-family: 'Fredoka', sans-serif;
+    }
+    header .responsive-menu a:hover, header .responsive-menu a:active{
+        background: rgba(255, 255, 255, .2);
+    }
+}
