@@ -116,6 +116,9 @@ iconos div i{
     font-size: 2rem;
     width: 2rem;
 }
+.botones .edit{
+    color: #000;
+}
 .botones .close:focus, .botones .close:hover{
     /*Tiene las propiedades 
     del button:focus&hover*/
