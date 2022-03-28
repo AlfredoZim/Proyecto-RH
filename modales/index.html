@@ -7,6 +7,12 @@
     <title>Modales</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/1cd743187f.js" crossorigin="anonymous"></script>
+    <script>
+        console.log(document.cookie)
+        if (document.cookie.indexOf("ProjectSession=Valid") == -1) {
+        location.href = "../Login/";
+        }
+    </script>
 </head>
 <body>
     <pp-modal>
@@ -22,13 +28,7 @@
           
     <script src="./modal.js"></script>
     <script src="./success-modal.js"></script>
-
     
-    <!-- <script src="./app.js"></script> -->
-    
-    <!-- <button id="button-error" onclick="<error-modal></error-modal>">Error</button>
-    <div id="error-b"></div> -->
-
 
 </body>
 </html>

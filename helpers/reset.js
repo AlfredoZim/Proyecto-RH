@@ -1,7 +1,7 @@
 import showMessage from './messageReset.js';
 const modal = new showMessage();
 modal.waitEvents();
-let regexEmail = /^\w+([\.-]?\w+)*@\minsait.com/;
+let regexEmail =  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 export default function resetForm() {
     let email = document.getElementById("emailUser").value;
@@ -14,5 +14,6 @@ export default function resetForm() {
     }else{
         alert("Ingresa un correo electronico valido")
     }
+
 }
 
