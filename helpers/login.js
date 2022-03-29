@@ -18,22 +18,26 @@ async function getVals(){
         {
           "id": 1,
           "userName": "J0vani",
-          "password": "password123"
+          "password": "password123",
+          "typeUs" : "RH"
         },
         {
           "id": 2,
           "userName": "joel",
-          "password": "password1234"
+          "password": "password1234",
+          "typeUs" : "EN"
         },
         {
           "userName": "Juan",
           "password": "dell1092",
-          "id": 3
+          "id": 3,
+          "typeUs" : "AS"
         },
         {
           "userName": "Alfredo",
           "password": "contraseñanadasegura",
-          "id": 4
+          "id": 4,
+          "typeUs" : "AS"
         }
       ]
     }
@@ -62,7 +66,7 @@ async function searchUser(user,pass){
     if(user === userAndPass.userName && pass === userAndPass.password){
       let loginDuration = new Date();
       loginDuration.setTime(loginDuration.getTime()+(1*60*60*1000));
-      document.cookie = "ProjectSession=Valid; "+loginDuration.toGMTString()+"; path=/";
+      document.cookie = `TypeSession=${userAndPass.typeUs}; ` +loginDuration.toGMTString()+"; path=/";
       return ["Usuario logueado","../modales/index.html"];
     }else{
       return ["Datos de usuario erroneos", ""];
