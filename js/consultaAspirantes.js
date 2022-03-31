@@ -22,12 +22,15 @@ document.getElementById('body').appendChild(divTable);
  */
 let elementos = getElementos('aspirante');
 
+let ancho = screen.width<=500;
+
 /**
  * Variable que define los títulos que se mostrarán en la tabla.
  * @author Joel Alcantara
  */
 let titulos = ["","Nombre Completo", "Correo", "Edad",  "Tecnologías", "Años Experiencia", "Asignación de Examen", "Acciones"];
-
+if(ancho)
+    titulos.splice(2,4);
 /**
  * Función que se encarga de construir el elemento HTML de la tabla.
  * @author Joel Alcantara
@@ -70,19 +73,26 @@ function llenaTabla(){
 
             let row_2_data_1 = document.createElement('td');
             row_2_data_1.innerHTML = element['nombre'] + " " + element['paterno'] + " " + element['materno'];
-            let row_2_data_2 = document.createElement('td');
-            row_2_data_2.innerHTML = element['email'];
-            let row_2_data_3 = document.createElement('td');
-            row_2_data_3.innerHTML = element['edad'];
-            //let row_2_data_4 = document.createElement('td');
-            //row_2_data_4.innerHTML = element['universidad'];
-            let row_2_data_5 = document.createElement('td');
-            row_2_data_5.innerHTML = element['tecnologias'];
-            let row_2_data_6 = document.createElement('td');
-            row_2_data_6.innerHTML = element['experiencia'];
-            let row_2_data_7 = document.createElement('td');
+            let row_2_data_2;
+            let row_2_data_3;
+            let row_2_data_7;
+            let row_2_data_5;
+            let row_2_data_6;
+            if(!ancho){
+                row_2_data_2 = document.createElement('td');
+                row_2_data_2.innerHTML = element['email'];
+                row_2_data_3 = document.createElement('td');
+                row_2_data_3.innerHTML = element['edad'];
+                //let row_2_data_4 = document.createElement('td');
+                //row_2_data_4.innerHTML = element['universidad'];
+                row_2_data_5 = document.createElement('td');
+                row_2_data_5.innerHTML = element['tecnologias'];
+                row_2_data_6 = document.createElement('td');
+                row_2_data_6.innerHTML = element['experiencia'];
+                }
+            row_2_data_7 = document.createElement('td');
             row_2_data_7.innerHTML = element['asignadoExamen']==1? "Asignado":element['asignadoExamen']==2? "Realizado":"Sin Asignación";
-
+            
             
             let row_2_data_8 = document.createElement('td');
             let row_imgMod = document.createElement('i');
@@ -114,11 +124,13 @@ function llenaTabla(){
                     
             row_2.appendChild(row_2_data_0);
             row_2.appendChild(row_2_data_1);
-            row_2.appendChild(row_2_data_2);
-            row_2.appendChild(row_2_data_3);
-           // row_2.appendChild(row_2_data_4);
-            row_2.appendChild(row_2_data_5);
-            row_2.appendChild(row_2_data_6);
+            if(!ancho){
+                row_2.appendChild(row_2_data_2);
+                row_2.appendChild(row_2_data_3);
+            // row_2.appendChild(row_2_data_4);
+                row_2.appendChild(row_2_data_5);
+                row_2.appendChild(row_2_data_6);
+            }
             row_2.appendChild(row_2_data_7);
             row_2.appendChild(row_2_data_8);
             tbody.appendChild(row_2);
@@ -226,7 +238,14 @@ function listenModChoosed(){
  */
 function completaDatos(index){
     let elemento = elementos[index];
-    return `<div>
+    let ancho = screen.width <= 500;
+    let bajarInfo = ancho? `
+        <label>Correo: `+ elemento['email']+`</label><br>
+        <label>Edad: `+ elemento['edad']+`</label><br>
+        <label>Tecnologías: `+ elemento['tecnologias']+`</label><br>
+        <label>Años Experiencia: `+ elemento['experiencia']+`</label><br>`
+        :``;
+    return `<div class = "datosRow">` + bajarInfo + `
         <label>Telefono: `+ elemento['telefono']+`</label><br>
         <label>Universidad: `+ elemento['universidad']+`</label><br>
         <label>Especialidad: `+ elemento['especialidad']+`</label><br>
@@ -234,7 +253,7 @@ function completaDatos(index){
         <label>Direccion: `+ elemento['direccion']+`</label><br>
         <label>Descripción de Experiencia: `+ elemento['descripcionExperiencia']+`</label><br>
         <label>Calificacion Entrevista: `+ elemento['calificacionEntrevista']+`</label><br>
-        <label>Calificacion Examen: `+ elemento['calificacionExamen']+`</label><br>
+        <label>Calificacion Examen: `+ elemento['calificacionExamen']+`</label><br> 
         <label>Calificacion General: `+ elemento['promedio']+`</label><br>
         <label>Notas Entrevistador: `+ elemento['notaEntrvistador']+`</label><br>
         <label>Contratado: `+ (elemento['contratado']? `SI`:`NO`)+`</label><br>

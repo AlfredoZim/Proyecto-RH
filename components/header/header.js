@@ -3,6 +3,7 @@ class show_header extends HTMLElement{
         super();
     }
     connectedCallback(){
+        let tipoUs = sessionStorage.getItem('tipoUs');
         this.innerHTML = `
         <header>
         <div class="space-logo">
@@ -14,22 +15,22 @@ class show_header extends HTMLElement{
                 <button id="slide-menu"><i class="fa-solid fa-bars"></i></button>
             </div>
             <div class="left">
-                <a href="#">INICIO</a>
-                <a href="#">ENTREVISTADORES</a>
-                <a href="#">ASPIRANTES</a>
-                <a href="#">EXÁMENES</a>
-                <a href="#">REPORTES</a>
+                <a href="inicio.html">INICIO</a>
+                `+(tipoUs == 'RH'? `<a href="#">ENTREVISTADORES</a>`:``)+`
+                `+(tipoUs == 'RH'? `<a href="consultaAspirantes.html">ASPIRANTES</a>`:``)+`
+                `+(tipoUs == 'RH' || tipoUs == 'EN'? `<a href="#">EXÁMENES</a>`:``)+`
+                `+(tipoUs == 'RH'? `<a href="#">REPORTES</a>`:``)+`
             </div>
             <div class="right">
                 <a h ref="#" class="item"><i class="fa-solid fa-right-to-bracket"></i></a>
             </div>
         </nav>
         <div class="responsive-menu" id="menu-r">
-            <a href="#">INICIO</a>
-            <a href="#">ENTREVISTADORES</a>
-            <a href="#">ASPIRANTES</a>
-            <a href="#">EXÁMENES</a>
-            <a href="#">REPORTES</a>
+            <a href="inicio.html">INICIO</a>
+            `+(tipoUs == 'RH'? `<a href="#">ENTREVISTADORES</a>`:``)+`
+            `+(tipoUs == 'RH'? `<a href="consultaAspirantes.html">ASPIRANTES</a>`:``)+`
+            `+(tipoUs == 'RH'|| tipoUs == 'EN'? `<a href="#">EXÁMENES</a>`:``)+`
+            `+(tipoUs == 'RH'? `<a href="#">REPORTES</a>`:``)+`
         </div>
         </header>`;
     }
