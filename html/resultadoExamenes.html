@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Resultado de examenes</title>
+    <script src="../components/header/header.js"></script>
+    <script src="https://kit.fontawesome.com/9cc9a09708.js" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="../components/header/header.css">
+    <link rel="stylesheet" href="../css/consultarResultados.css">
+</head>
+<body id="body">
+    <my-header></my-header> 
+    <section class="contentExam">
+        <h1>Resultados de examenes</h1>
+        <div style="overflow: auto;">
+            <table id="dataExam">
+                <tr>
+                    <th>Nombre del aspirante</th>
+                    <th>Correo electronico</th>
+                    <th>Vacante</th>
+                    <th>Examen</th>
+                    <th>Resultado</th>    
+                    <th>Acciones</th> 
+                </tr>
+        </div>
+        </table>
+    </section>
+    <div class="shadow-host"></div>
+    <script src="../components/header/header-actions.js"></script>
+    <script type="module">
+        import {getVals,fullTable,getIdBut} from '../js/consultaResultadosEx.js';
+        window.getVals = getVals()
+        window.fullTable = fullTable();
+        window.getIdBut = getIdBut;
+        
+        
+    </script>
+    <script src="../components/modalData/index.js"></script>
+    
+</body>
+</html>
