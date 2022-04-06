@@ -8,6 +8,81 @@
     <script src="https://kit.fontawesome.com/9cc9a09708.js" crossorigin="anonymous"></script>
     <script src="../components/header/header.js"></script>
     <link rel="stylesheet" href="../css/asignacion-examen.css">
+    <style>
+            
+        /* The Modal (background) */
+        .modal {
+            font-family: 'Fredoka', sans-serif;
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            padding-top: 20vh; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.4); 
+            text-align: center;
+        }
+
+        /* Modal Content */
+        .modal-content {
+            
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 0;
+            border: 1px solid #888;
+            width: 50%;
+            height: 50%;
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+            -webkit-animation-name: animatetop;
+            -webkit-animation-duration: 0.4s;
+            animation-name: animatetop;
+            animation-duration: 0.4s
+        }
+        .modal-header {
+            height: 10%;
+            padding: 2px 16px;
+            }
+        .modal-body {
+            padding: 2px 16px;
+            margin: 20px 2px;
+            font-size: 1rem;
+            height: 50%;
+        }
+        button{
+            font-family: 'Fredoka', sans-serif;
+            border-radius: .5rem;
+            background-color:#e2747e;
+            box-shadow: .15rem .15rem .15rem rgba(0, 0, 0, .2);
+            border: 1px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1rem;
+            height: 2rem;
+            width: 10rem;
+        }
+        /* Add Animation */
+        @-webkit-keyframes animatetop {
+            from {top:-300px; opacity:0} 
+            to {top:0; opacity:1}
+        }
+        @keyframes animatetop {
+            from {top:-300px; opacity:0}
+            to {top:0; opacity:1}
+        }
+        /* The Close Button */
+        .close {
+            color: black;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <my-header></my-header>
@@ -19,54 +94,62 @@
         </div>
         <section>
             <h4 class="sub-title">Datos generales</h4>
-            <div class="nombre-completo">
-                <div class="nombre">
+            <div class="seccion">
+                <div class="sector">
                     <h4>Nombre</h4>
                     <p id="n-user">Nombre de aspirante</p>
                 </div>
-                <div class="apellido-p">
+                <div class="sector">
                     <h4>Apellido paterno</h4>
                     <p id="s-user">Apellido de aspirante</p>
                 </div>
-                <div class="apellido-m">
+                <div class="sector">
                     <h4>Apellido materno</h4>
                     <p>Apellido de aspirante</p>
                 </div>
             </div>
-            <div class="datos-generales">
-                <div class="numero">
+            <div class="seccion">
+                <div class="sector">
                     <h4>Número telefonico</h4>
                     <p>-52 56 2014 8183</p>
                 </div>
-                <div class="edad">
+                <div class="sector">
                     <h4>Edad</h4>
                     <p>##</p>
                 </div>
+                <div class="sector">
+                    <h4>Dirección</h4>
+                    <p>Calle Aspirante ### ###, Colonia, Estado</p>
+                </div>
             </div>
-            <h4 class="sub-title">Dirección</h4>
-            <div class="direccion">
-                <div class="direccion-calle">
-                    <div class="calle">
-                        <h4>Calle</h4>
-                        <p>Calle del aspirante</p>
+            <h4 class="sub-title">Datos Academicos</h4>
+            <div class="apartado">
+                <div class="seccion">
+                    <div class="sector">
+                        <h4>Universidad</h4>
+                        <p>Universidad del aspirante</p>
                     </div>
-                    <div class="ext">
-                        <h4>Ext</h4>
-                        <p>###</p>
+                    <div class="sector">
+                        <h4>Carrera</h4>
+                        <p>Nombre de la carrera</p>
                     </div>
-                    <div class="int">
-                        <h4>Int</h4>
-                        <p>###</p>
+                    <div class="sector">
+                        <h4>Especialidad</h4>
+                        <p>NA</p>
                     </div>
                 </div>
-                <div class="direccion-estado">
-                    <div class="estado">
-                        <h4>Estado</h4>
-                        <p>Estado donde reside</p>
+                <div class="seccion">
+                    <div class="sector">
+                        <h4>Puesto laboral anterior</h4>
+                        <p>  Analyst</p>
                     </div>
-                    <div class="colonia">
-                        <h4>Colonia</h4>
-                        <p>Colonia donde reside</p>
+                    <div class="sector">
+                        <h4>Tecnologías que domina</h4>
+                        <p>HTML, Javascrip, etc etc</p>
+                    </div>
+                    <div class="sector">
+                        <h4>Años de experiencia</h4>
+                        <p>#</p>
                     </div>
                 </div>
             </div>
@@ -79,36 +162,51 @@
             <h2>EXAMENES</h2>
         </div>
         <div class="content">
-            <div class="add-exam">
+            <button class="add-exam" id="add-exam">
                 <p>No se ha añadido ningún exámen, añade uno.</p>
                 <i class="fa-solid fa-circle-plus"></i>
-            </div>
-            <div class="select-exam">
-                <select name="exams-area">
-                    <option value="value1" selected>Seleccione el aréa del exámen</option>
+            </button>
+            <div class="select-exam hidden" id="select-exam">
+                <select name="exams-area" id="area">
+                    <option value="NAO" selected>Seleccione el aréa</option>
                     <option value="value1">Primera aréa</option>
                     <option value="value2">Segunda aréa</option>
                     <option value="value3">Tercera aréa</option>
                 </select>
-                
-                <select name="exams">
-                    <option value="value1" selected>Seleccione el exámen</option>
+                <select name="exams" id="exam" disabled>
+                    <option value="NAO" selected>Seleccione el exámen</option>
                     <option value="value1">Primer exámen</option>
                     <option value="value2">Segundo exámen</option>
                     <option value="value3">Tercer exámen</option>
                 </select>
-            </div>
-            <div class="space-button">
-                <button class="save">
-                    Guardar
-                </button>
+                <div class="space-button">
+                    <button class="save" id="save" disabled>
+                        Guardar
+                    </button>
+                </div>
             </div>
         </div>
         <div class="footer-section"></div>
     </div>
 
+    <button>Open Modal</button>
+        <div class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <h1>Exitoso</h1>
+                    <slot><slot>
+                </div>
+                <div>
+                    <button class="cerrar">Cerrar</button>
+                <div>
+            </div>
+        </div>`
+
     <script src="../components/header/header-actions.js"></script>
     <script src="../data/dataStorage.js"></script>
-    <script src="../js/aisgnacion-examen.js"></script>
+    <script src="../js/asignacion-examen.js"></script>
 </body>
 </html>

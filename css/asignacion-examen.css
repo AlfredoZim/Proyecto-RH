@@ -34,11 +34,12 @@
     height: 1rem;
     width: 100%;
 }
-.container section .nombre-completo, .container section .datos-generales{
+.container section .seccion{
     display: flex;
     justify-content: space-around;
-    padding: 1rem .2rem;
+    padding: .5rem .2rem;
     width: 100%;
+    flex-wrap: wrap;
 }
 .container section .sub-title{
     background: rgba(0, 0, 0, .1);
@@ -48,16 +49,15 @@
     align-items: center;
     justify-content: center;
 }
-.container section .direccion {
+.container section .apartado {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
-.container section .direccion .direccion-calle,
-.container section .direccion .direccion-estado{
+.container section .apartado .seccion{
     display: flex;
     justify-content: space-around;
-    padding: .5rem;
+    flex-wrap: wrap;
 }
 .container .content{
     align-items: center;
@@ -111,13 +111,16 @@
     margin: .5rem 0;
     width: 80%;
 }
-.container .content .space-button{
+.container .content .select-exam select:disabled{
+    cursor: default;
+}
+.container .content .select-exam .space-button{
     display: flex;
     flex-direction: row-reverse;
-    width: 95%;
+    width: 80%;
     padding-bottom: .5rem;
 }
-.container .content .space-button .save{
+.container .content .select-exam .space-button .save{
     align-items: center;
     font-family: 'Fredoka', sans-serif;
     border-radius: .5rem;
@@ -132,14 +135,21 @@
     height: 2rem;
     width: 10rem;
 }
-.container .content .space-button .save:hover,
-.container .content .space-button .save:focus{
+.container .content .select-exam .space-button .save:hover,
+.container .content .select-exam .space-button .save:focus{
     box-shadow: .2rem .2rem .2rem rgba(0, 0, 0, .3);
     transform: scale(1.05);
     transition: .2s;
 }
-
-
+.container .content .select-exam .space-button .save:disabled{
+    box-shadow: none;
+    transform: none;
+    background: grey;
+    cursor: default;
+}
+.container .content .hidden{
+    display: none;
+}
 @media (max-width: 576px){
     .container .title-page{
         flex-direction: column;
@@ -154,14 +164,22 @@
     .container section{
         width: 100%;
     }
-    .container section .nombre-completo{
-        padding-left: 1rem;
+    .container section .seccion{
         flex-wrap: wrap;
     }
-    .container section .nombre-completo div{
+    .container section .seccion div{
         width: 50%;
     }
-    .container section .nombre-completo .apellido-m{
-        padding-top: 1rem;
+    .container section .seccion,
+    .container section .apartado .seccion{
+        flex-direction: column;
+    }
+    .container section .seccion .sector{
+        display: flex;
+        width: 100%;
+    }
+    .sector h4::after{
+        margin-right: .5rem;
+        content: ":";
     }
 }
