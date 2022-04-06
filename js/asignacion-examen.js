@@ -18,6 +18,7 @@ btn_addexam.addEventListener("click",()=>{
 area.addEventListener("change", ()=>{
     if(area.value != "NAO"){
         exam.disabled = false;
+        exam.getElementsByTagName("option")[0].selected = true;
     }else{
         exam.disabled = true;
         btn_save.disabled = true;
