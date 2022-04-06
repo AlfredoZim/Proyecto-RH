@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Registro Aspirantes</title>
+    <script src="../components/header/header.js"></script>
+    <script src="https://kit.fontawesome.com/9cc9a09708.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../components/header/header.css">
+    <link rel="stylesheet" href="../css/evaluacionEntrevista.css">
+</head>
+<body id="body">
+    <my-header></my-header>
+    
+    <script src="../components/header/header-actions.js"></script>
+	<br>
+	<br>
+	<h1>Aspirantes Asignados</h1>
+	<br>
+	<br>
+
+    <span id="registered"></span>
+
+    <div id="m-register" class="modal-registered">
+        <div class="modal">
+            <h1>Evaluación de Entrevista</h1>
+            <br>
+            <br>
+            <br>
+            <form id="formulario">                
+                <div class="divDatos">
+                    <label id="nombre"></label><br>
+                </div>
+                <br>
+                <br>
+                <div class="divDatos">
+                    <label id="edad"></label><br>
+                </div>
+                <br>
+                <br>
+                <div class="divDatos">
+                    <label id="tecnologias"></label><br>
+                </div>
+                <br>
+                <br>
+                <div class="divDatos">
+                    <label id="experiencia"></label><br>
+                </div>
+                <br>
+                <br>
+                <div class="divDatos">
+                    <label id="asignacion"></label><br>
+                </div>
+                <br>
+                <br>
+                <div class="divDatos">
+                    <label id="examen"></label><br>
+                </div>
+                <br>
+                <br>
+                <div class="divDatos">
+                    <label for="evaluacionEntrevista">*Calificación de la Entrevista:</label><br>
+                    <input id="evaluacionEntrevista" type="number" name="evaluacionEntrevista-aspirante" min="0" max="10" onblur="validaElemento('evaluacionEntrevista')"><br>
+                    <label id="errorevaluacionEntrevista" for="evaluacionEntrevista" class="mensajeError"></label><br>
+                </div>
+                <br>
+                <br>
+                <div class="divDatos">
+                    <label for="notas">*Observaciones:</label><br>
+                    <textarea name="notas-aspirante" id="notas"  rows="15" maxlength="500" onblur="validaElemento('notas')"></textarea><br>
+                    <label id="errornotas" for="notas" class="mensajeError"></label><br>
+                </div>
+            </form>
+            <button id="close">Asignar</button>
+        </div>
+    </div>
+
+    <script src="../js/evaluacionEntrevista-modal.js"></script>
+    <script src="../data/dataStorage.js"></script>
+	<script src="../js/aspirantesAsignados.js"></script>
+	<script src="../data/mapper.js"></script>
+</body>
+</html>

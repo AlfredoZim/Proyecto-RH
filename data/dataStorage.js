@@ -101,6 +101,33 @@ function getElementos(tabla){
 }
 
 /**
+ * Funcion que obtiene de una "tabla" los elementos que cumplan con el parametro y valor buscados.
+ * @param {*} tabla: Nombre de la tabla donde se busca obtener los elementos.
+ * @param {*} nameParam: Nombre del atributo que se busca.
+ * @param {*} value: Nombre del valor que debe contener el atributo.
+ * @return {Array} Arreglo con los elementos que cumplan con el parametro, en caso de no existir 
+ *                  se devuelve un arreglo vacio.
+ * @author Joel Alcantara
+ */
+function getElementosByParam(tabla, nameParam, value){
+    try{
+        let elementos = getElementos(tabla);
+        if(elementos.length == 0)
+            return [];
+        let cumplen = [];
+        for(let i = 0; i < elementos.length; i++){
+            console.log(elementos[i][nameParam] +'--'+value);
+            if(elementos[i][nameParam] == value)
+                cumplen.push(elementos[i]);       
+        }
+        return cumplen;
+    }catch(error){
+        console.error('Error al obtener elementos',error);
+        throw error;
+    }
+}
+
+/**
  * Función que obtiene un elemento de una "tabla".
  * @param {string} tabla: Nombre de la tabla de la que se busca obtener los elementos.
  * @param {string} id: Nombre del atributo que es id.
@@ -146,7 +173,7 @@ function modificaElemento(tabla, elemento, index){
  * Función que modifica un elemento por su id.
  * @param {String} tabla: Nombre de la tabla a la que se modificará.
  * @param {Object} elemento: Objeto con el elemento a reemplazar.
- * @param {String} id: Posición del elemento a reemplazar.
+ * @param {String} id: Nombre de id del elemento a reemplazar.
  * @returns 1 si se modificó el elemento, 0 en otro caso.
  */
  function modificaElementoById(tabla, elemento, id){

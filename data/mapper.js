@@ -45,7 +45,8 @@ function getAspirante(elementos){
             "calificacionExamen" : 0,
             "promedio" : 0,
             "notaEntrvistador" : '',
-            "contratado" : false
+            "contratado" : false,
+            "password" : (elementos[1].value + (Math.floor(elementos[4].value*(Math.random()*100))) + elementos[0].value).replace(/ /g, "")
     }
     return aspirante;
 }
