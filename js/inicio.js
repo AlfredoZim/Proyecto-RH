@@ -17,13 +17,13 @@ let viewRH = `<div class="title-page">
         </thead>
         <tbody>
             <tr>
-                <td>uno</td>
+                <td>UNO</td>
                 <td>uno</td>
                 <td>uno</td>
                 <td>uno</td>
             </tr>
             <tr>
-                <td>uno</td>
+                <td>UNO</td>
                 <td>uno</td>
                 <td>uno</td>
                 <td>uno</td>
@@ -53,26 +53,8 @@ let viewRH = `<div class="title-page">
                 <th></th>
             </tr>
         </thead>
-        <tr>
-            <td>uno</td>
-            <td>uno</td>
-            <td>uno</td>
-        </tr>
-        <tr>
-            <td>uno</td>
-            <td>uno</td>
-            <td>uno</td>
-        </tr>
-        <tr>
-            <td>uno</td>
-            <td>uno</td>
-            <td>uno</td>
-        </tr>
-        <tr>
-            <td>uno</td>
-            <td>uno</td>
-            <td>uno</td>
-        </tr>
+        <tbody id="aspirantesSE">
+        </tbody>
     </table>
 </div>
 </section>`;
@@ -216,21 +198,39 @@ let viewapplicant = `<section>
     </table>
 </div>
 </section>`;
-
 container.innerHTML = viewRH;
+const aspirantesSE = document.getElementById("aspirantesSE");
+let userName = sessionStorage.getItem('userName');
+let elementos = getElementosByParam('aspirante', 'entrevistador', userName);
+
+console.log(elementos);
+
+let listadoHTML = elementos.map(({nombre,direccion}) => {
+    return `<tr>
+                <td>${nombre}</td>
+                <td>${direccion}</td>
+                <td>Asignar</td>
+            </tr>
+    `}).join("");
+
+    aspirantesSE.innerHTML = listadoHTML;
 
 
 
 
-const Aspirantes = 
-[
-    {
-        "nombre": "Alfredo"
-    },
-    {
-        "nombre": "Ivan"
-    }
-]
-console.log(Aspirantes);
-let uno = Aspirantes.filter(aspirante => aspirante.nombre != "Ivan");
-console.log(uno);
+
+
+
+//const Aspirantes = 
+//[
+//    {
+//        "nombre": "Alfredo"
+//    },
+//    {
+//        "nombre": "Ivan"
+//    }
+//]
+//console.log(Aspirantes);
+//let uno = Aspirantes.filter(aspirante => aspirante.nombre != "Ivan");
+//console.log(uno);
+//
