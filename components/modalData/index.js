@@ -73,17 +73,34 @@ export default class modalDatas {
             }
 
             .buttonsSec > button{
-                
-                border: none;
-                color: white;
-                border: 3px;
+                align-items: center;
+                font-family: sans-serif;
+                border-radius: .5rem;
+                background-color: #004253;
+                box-shadow: .15rem .15rem .15rem rgba(0, 0, 0, .2);
+                border: 1px;
+                color: #fff;
                 cursor: pointer;
-                padding: 10px;
+                display: flex;
+                justify-content: center;
+                font-size: 1rem;
+                height: 2rem;
+                width: 10rem;
+            }
+
+            .buttonsSec > button:focus, .buttonsSec  button:hover{
+                box-shadow: .2rem .2rem .2rem rgba(0, 0, 0, .3);
+                transform: scale(1.05);
+                transition: .2s;
             }
             
             @media (max-width: 578px){
                 .dataModal{
                     width: 90%;
+                }
+
+                .buttonsSec > button{
+                    font-size: 12px;
                 }
             }
 
@@ -91,6 +108,7 @@ export default class modalDatas {
                 .dataModal{
                     height: 60%;
                 }
+                
             }
 
         </style>
@@ -106,8 +124,8 @@ export default class modalDatas {
                     </table>
                 </div>
                 <div class="buttonsSec">
-                    <button id="aceptarAsp" style="background-color: #E65251">Aceptas aspirante</button>
-                    <button id="eliminarAsp" style="background-color: #12C86E">Eliminar aspirante</button>
+                    <button id="aceptarAsp" style="background-color: #19D076;">Aceptar aspirante</button>
+                    <button id="eliminarAsp" style="background: #BD0F10;">Eliminar aspirante</button>
                     <button id="close" style="background-color: #146ebe">Ver más detalles</button>
                 </div>
             </div>
