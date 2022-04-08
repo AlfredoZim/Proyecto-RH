@@ -8,6 +8,15 @@
     <script src="https://kit.fontawesome.com/9cc9a09708.js" crossorigin="anonymous"></script>
     <script src="../components/header/header.js"></script>
     <link rel="stylesheet" href="../css/inicio.css">
+    <script> 
+        let typeUser = document.cookie.split('=')[1];
+          if(typeUser === "RH" || typeUser == "EN" || typeUser  ===  "AS"){
+            console.log(document.cookie.split('=')[1]);
+            console.log("Mostrar NAV correspondiente");
+        }else{
+            location.href = "../html/Login/index.html";
+        }
+    </script>
 </head>
 <body>
     <my-header></my-header>
