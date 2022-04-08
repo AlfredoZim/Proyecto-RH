@@ -28,7 +28,7 @@ class show_header extends HTMLElement{
                 `+(tipoUs == 'RH'? `<a href="#">REPORTES</a>`:``)+`
             </div>
             <div class="right">
-                <a h ref="#" class="item"><i class="fa-solid fa-right-to-bracket"></i></a>
+                <a onclick="cerrarSession()" class="item"><i class="fa-solid fa-right-to-bracket"></i></a>
             </div>
         </nav>
         <div class="responsive-menu" id="menu-r">
@@ -43,3 +43,10 @@ class show_header extends HTMLElement{
 }
 
 window.customElements.define('my-header',show_header);
+
+function cerrarSession(){
+    let loginDuration = new Date();
+        loginDuration.setTime(loginDuration.getTime()-(1*60*60*1000));
+        document.cookie = `TypeSession=;` +loginDuration.toGMTString()+"; path=/";
+    location.href = "../html/Login/index.html";
+}

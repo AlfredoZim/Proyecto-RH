@@ -116,14 +116,7 @@ function cargaBotonesReglasExamen(){
 }
 
 function permitirHacerExamen(){
-    let typeUsers = document.cookie.split(' ');
-    let userName = document.cookie.split('=')[1];
-    typeUsers.forEach(element => {
-        let parts = element.split('=');
-        if("UserName" == parts[0])
-        userName = parts[1];
-    });
-    let elemento = getElemento('aspirante', 'email', userName);
+    let elemento = getElemento('aspirante', 'email', getUserName());
     
     console.log(elemento);
     if(elemento["asignadoExamen"] <= 1)
@@ -223,14 +216,8 @@ function muestraReglas(){
  * @returns 1 si se modificó el elemento, 0 en otro caso.
  */
  function actualizaAspiranteEvaluaciones(){
-    let typeUsers = document.cookie.split(' ');
-    let userName = document.cookie.split('=')[1];
-    typeUsers.forEach(element => {
-        let parts = element.split('=');
-        if("UserName" == parts[0])
-            userName = parts[1];
-    });
-    let elemento = getElemento('aspirante', 'email', userName);
+    
+    let elemento = getElemento('aspirante', 'email', getUserName());
     
     elemento["calificacionExamen"] = aciertos;
     elemento["promedio"] = (elemento["calificacionEntrevista"]+aciertos)/2;

@@ -8,22 +8,7 @@
     <script src="https://kit.fontawesome.com/9cc9a09708.js" crossorigin="anonymous"></script>
     <script src="../components/header/header.js"></script>
     <link rel="stylesheet" href="../css/inicio.css">
-    <script> 
-        let typeUsers = document.cookie.split(' ');
-        let typeUser = document.cookie.split('=')[1];
-        typeUsers.forEach(element => {
-            let parts = element.split('=');
-            if("TypeSession" == parts[0])
-            typeUser = parts[1];
-        });
-        
-          if(typeUser === "RH" || typeUser == "EN" || typeUser  ===  "AS"){
-            console.log(document.cookie.split('=')[1]);
-            console.log("Mostrar NAV correspondiente");
-        }else{
-            location.href = "../html/Login/index.html";
-        }
-    </script>
+    <script src="../js/permisos.js"></script>
 </head>
 <body>
     <my-header></my-header>
