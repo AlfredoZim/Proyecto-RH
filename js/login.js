@@ -10,20 +10,20 @@ async function getVals(){
         {
           "id": 2,
           "userName": "joel",
-          "password": "password1234",
-          "typeUs" : "EN"
+          "password": "password",
+          "typeUs" : "RH" 
         },
         {
           "userName": "Juan",
-          "password": "dell1092",
+          "password": "juan",
           "id": 3,
-          "typeUs" : "AS"
+          "typeUs" : "RH"
         },
         {
           "userName": "Alfredo",
-          "password": "contraseñanadasegura",
+          "password": "alfredo",
           "id": 4,
-          "typeUs" : "AS"
+          "typeUs" : "RH"
         }
       ]
     }
@@ -52,13 +52,24 @@ async function searchUser(user,pass){
     if(user === userAndPass.userName && pass === userAndPass.password){
       let loginDuration = new Date();
       loginDuration.setTime(loginDuration.getTime()+(1*60*60*1000));
-      document.cookie = `TypeSession=${userAndPass.typeUs}; ` +loginDuration.toGMTString()+"; path=/";
+      document.cookie = `TypeSession=${userAndPass.typeUs};` +loginDuration.toGMTString()+"; path=/";
       return ["Usuario logueado","../inicio.html"];
     }else{
-      return ["Datos de usuario erroneos", ""];
+        return ["Datos de usuario erroneos", ""];
     }
   }else{
-    return ["Usuario no encontrado",""];
+    let aspirante = getElemento('aspirante','email',document.getElementById('user').value);
+    if(aspirante!=undefined){
+      if(aspirante["password"]==document.getElementById('pass').value){
+        let loginDuration = new Date();
+        loginDuration.setTime(loginDuration.getTime()+(1*60*60*1000));
+        document.cookie = `TypeSession=${"AS"} UserName=${aspirante["email"]};` +loginDuration.toGMTString()+"; path=/";
+        return ["Usuario logueado","../inicio.html"];
+      }else
+        return ["Password Incorrecto",""];
+    }else{ 
+      return ["Usuario no encontrado",""];
+    }
   }
 }
 
@@ -86,6 +97,7 @@ async function login() {
 
   else {
     result = await searchUser(usuario,password);
+    console.log("Results: " + result[1])
     alert(result[0]);
     window.location.href = result[1]; 
   }

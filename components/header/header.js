@@ -3,7 +3,13 @@ class show_header extends HTMLElement{
         super();
     }
     connectedCallback(){
-        let tipoUs = sessionStorage.getItem('tipoUs');
+        let typeUsers = document.cookie.split(' ');
+        let tipoUs = document.cookie.split('=')[1];
+        typeUsers.forEach(element => {
+            let parts = element.split('=');
+            if("TypeSession" == parts[0])
+                tipoUs = parts[1];
+        });
         this.innerHTML = `
         <header>
         <div class="space-logo">
