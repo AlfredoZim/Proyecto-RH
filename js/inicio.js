@@ -17,28 +17,10 @@ let viewRH = `<div class="title-page">
         </thead>
         <tbody>
             <tr>
-                <td>UNO</td>
-                <td>uno</td>
-                <td>uno</td>
-                <td>uno</td>
-            </tr>
-            <tr>
-                <td>UNO</td>
-                <td>uno</td>
-                <td>uno</td>
-                <td>uno</td>
-            </tr>
-            <tr>
-                <td>uno</td>
-                <td>uno</td>
-                <td>uno</td>
-                <td>uno</td>
-            </tr>
-            <tr>
-                <td>uno</td>
-                <td>uno</td>
-                <td>uno</td>
-                <td>uno</td>
+                <td>Sin registros</td>
+                <td>Sin registros</td>
+                <td>Sin registros</td>
+                <td>Sin registros</td>
             </tr>
         </tbody>
     </table>
@@ -54,6 +36,7 @@ let viewRH = `<div class="title-page">
             </tr>
         </thead>
         <tbody id="aspirantesSE">
+        
         </tbody>
     </table>
 </div>
@@ -197,26 +180,52 @@ let viewapplicant = `<section>
         </tr>
     </table>
 </div>
-</section>`;
-container.innerHTML = viewRH;
+</secton>`;
+//function validar(){
+//    if (userType == "RH") {      
+        container.innerHTML = viewRH;
+//    }else if (userType == "AS"){
+//        container.innerHTML = viewapplicant;
+//    }else if (userType == "EN"){
+//        container.innerHTML = viewinterviewer;
+//    }else{
+//    }
+//}
+
+const userType = getTipoUsuario();
+
 const aspirantesSE = document.getElementById("aspirantesSE");
-let userName = sessionStorage.getItem('userName');
-let elementos = getElementosByParam('aspirante', 'entrevistador', userName);
 
+const modal = document.getElementById("modal-interview");
+const close_modal_registry = document.getElementById("close");
+
+let elementos = getElementos("aspirante");
 console.log(elementos);
-
-let listadoHTML = elementos.map(({nombre,direccion}) => {
+let listadoHTML = elementos.map(({nombre,especialidad}) => {
     return `<tr>
                 <td>${nombre}</td>
-                <td>${direccion}</td>
-                <td>Asignar</td>
-            </tr>
-    `}).join("");
+                <td>${especialidad}</td>
+                <td>
+                    <button class="btn-add-inter" onclick="examenes()">
+                        <i class="fa-solid fa-calendar-plus"></i>
+                    </button>
+                </td>
+            </tr>`
+}).join("");
+aspirantesSE.innerHTML = listadoHTML;
+const btn_add_inter = document.getElementById('btn-add-inter');
 
-    aspirantesSE.innerHTML = listadoHTML;
 
+function examenes(){
+    //modal.classList.add('show');
+    location.href = "/html/asignacion-examen.html"
+    console.log("hola")
+}
 
-
+//close_modal_registry.addEventListener('click', () => {
+//    modal.classList.remove('show');
+//})
+//
 
 
 

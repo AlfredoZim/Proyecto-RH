@@ -123,7 +123,7 @@ function cargaBotonesReglasExamen(){
         let aDespues = document.createElement('a');
         let botonDespues = document.createElement('button');
 
-        aDespues.href = "../html/consultaAspirantes.html";
+        aDespues.href = "../html/inicio.html";
         botonDespues.id = "close2";
         botonDespues.innerHTML = "Despues";
         aDespues.appendChild(botonDespues);
@@ -138,7 +138,7 @@ function cargaBotonesReglasExamen(){
         let aDespues = document.createElement('a');
         let botonDespues = document.createElement('button');
 
-        aDespues.href = "../html/consultaAspirantes.html";
+        aDespues.href = "../html/inicio.html";
         botonDespues.id = "close2";
         botonDespues.innerHTML = "Salir";
         aDespues.appendChild(botonDespues);
@@ -240,7 +240,7 @@ function preparaModalFinalExamen(){
         let aDespues = document.createElement('a');
         let botonDespues = document.createElement('button');
 
-        aDespues.href = "../html/consultaAspirantes.html";
+        aDespues.href = "../html/inicio.html";
         botonDespues.id = "close2";
         botonDespues.innerHTML = "Salir";
         aDespues.appendChild(botonDespues);

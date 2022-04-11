@@ -18,6 +18,7 @@
 }
 .container .title-page i{
     padding-left: .5rem;
+    font-size: 1.5rem;
 }
 .container .title-page h2{
     padding: 0 1rem;
@@ -93,7 +94,6 @@
     transform: scale(1.02);
     transition: .2s;
 }
-
 .container .content .select-exam{
     align-items: center;
     border-radius: .5rem;
@@ -109,7 +109,7 @@
     cursor: pointer;
     font-size: 1.2rem;
     margin: .5rem 0;
-    width: 80%;
+    width: 65%;
 }
 .container .content .select-exam select:disabled{
     cursor: default;
@@ -117,6 +117,7 @@
 .container .content .select-exam .space-button{
     display: flex;
     flex-direction: row-reverse;
+    justify-content: center;
     width: 80%;
     padding-bottom: .5rem;
 }
@@ -147,8 +148,47 @@
     background: grey;
     cursor: default;
 }
+.container .content .info-exam{
+    padding: 1rem 0;
+    margin: .5rem 0;
+}
 .container .content .hidden{
     display: none;
+}
+
+.modal-background{
+    align-items: center;
+    background-color: rgba(0, 0, 0, .3);
+    display: none;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+.show{
+    display: flex;
+    pointer-events: auto;
+    transition: 1s;
+}
+.modal{
+    background-color: #fff;
+    width: 30rem;
+    max-width: 100%;
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem .5rem rgba(0, 0, 0, .3);
+    text-align: center;
+}
+.modal .modal-title{
+    margin: 0;
+}
+.modal .modal-text{
+    opacity: 0.8;
+    font-size: 1rem;
+    margin-bottom: 1rem;
 }
 @media (max-width: 576px){
     .container .title-page{
@@ -169,6 +209,9 @@
     }
     .container section .seccion div{
         width: 50%;
+    }
+    .container .content .select-exam select{
+        width: 80%;
     }
     .container section .seccion,
     .container section .apartado .seccion{

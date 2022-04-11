@@ -24,8 +24,10 @@ class show_header extends HTMLElement{
                 <a href="inicio.html">INICIO</a>
                 `+(tipoUs == 'RH'? `<a href="#">ENTREVISTADORES</a>`:``)+`
                 `+(tipoUs == 'RH'? `<a href="consultaAspirantes.html">ASPIRANTES</a>`:``)+`
-                `+(tipoUs == 'RH' || tipoUs == 'EN'? `<a href="#">EXÁMENES</a>`:``)+`
-                `+(tipoUs == 'RH'? `<a href="#">REPORTES</a>`:``)+`
+                `+(tipoUs == 'RH' || tipoUs == 'EN'? `<a href="examenes-inicio.html">EXÁMENES</a>`:``)+`
+                `+(tipoUs == 'RH'? `<a href="resultadoExamenes.html">RESULTADOS</a>`:``)+`
+                `+(tipoUs == 'AS'? `<a href="aplicacionExamen.html">APLICACIÓN DE EXÁMEN</a>`:``)+`
+                `+(tipoUs == 'EN' || tipoUs == 'RH'? `<a href="aspirantesAsignados.html">CALIFICAR ENTREVISTA</a>`:``)+`
             </div>
             <div class="right">
                 <a onclick="cerrarSession()" class="item"><i class="fa-solid fa-right-to-bracket"></i></a>
@@ -35,8 +37,9 @@ class show_header extends HTMLElement{
             <a href="inicio.html">INICIO</a>
             `+(tipoUs == 'RH'? `<a href="#">ENTREVISTADORES</a>`:``)+`
             `+(tipoUs == 'RH'? `<a href="consultaAspirantes.html">ASPIRANTES</a>`:``)+`
-            `+(tipoUs == 'RH'|| tipoUs == 'EN'? `<a href="#">EXÁMENES</a>`:``)+`
-            `+(tipoUs == 'RH'? `<a href="#">REPORTES</a>`:``)+`
+            `+(tipoUs == 'RH'|| tipoUs == 'EN'? `<a href="examenes-inicio.html">EXÁMENES</a>`:``)+`
+            `+(tipoUs == 'RH'? `<a href="resultadoExamenes.html">RESULTADOS</a>`:``)+`
+            `+(tipoUs == 'AS'? `<a href="aplicacionExamen.html">APLICACIÓN DE EXÁMEN</a>`:``)+`
         </div>
         </header>`;
     }

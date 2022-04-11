@@ -8,6 +8,7 @@
     <script src="https://kit.fontawesome.com/9cc9a09708.js" crossorigin="anonymous"></script>
     <script src="../components/header/header.js"></script>
     <link rel="stylesheet" href="../css/asignacion-examen.css">
+    <script src="../js/permisos.js"></script>
 </head>
 <body>
     <my-header></my-header>
@@ -22,29 +23,29 @@
             <div class="seccion">
                 <div class="sector">
                     <h4>Nombre</h4>
-                    <p id="n-user">Nombre de aspirante</p>
+                    <p id="n-user"></p>
                 </div>
                 <div class="sector">
                     <h4>Apellido paterno</h4>
-                    <p id="s-user">Apellido de aspirante</p>
+                    <p id="s-user"></p>
                 </div>
                 <div class="sector">
                     <h4>Apellido materno</h4>
-                    <p>Apellido de aspirante</p>
+                    <p id="l-user"></p>
                 </div>
             </div>
             <div class="seccion">
                 <div class="sector">
                     <h4>Número telefonico</h4>
-                    <p>-52 56 2014 8183</p>
+                    <p id="number-user"></p>
                 </div>
                 <div class="sector">
                     <h4>Edad</h4>
-                    <p>##</p>
+                    <p id="age-user"></p>
                 </div>
                 <div class="sector">
                     <h4>Dirección</h4>
-                    <p>Calle Aspirante ### ###, Colonia, Estado</p>
+                    <p id="adress-user"></p>
                 </div>
             </div>
             <h4 class="sub-title">Datos Academicos</h4>
@@ -52,29 +53,29 @@
                 <div class="seccion">
                     <div class="sector">
                         <h4>Universidad</h4>
-                        <p>Universidad del aspirante</p>
+                        <p id="university-user"></p>
                     </div>
                     <div class="sector">
                         <h4>Carrera</h4>
-                        <p>Nombre de la carrera</p>
+                        <p id="career-user"></p>
                     </div>
                     <div class="sector">
                         <h4>Especialidad</h4>
-                        <p>NA</p>
+                        <p id="speciality-user"></p>
                     </div>
                 </div>
                 <div class="seccion">
                     <div class="sector">
                         <h4>Puesto laboral anterior</h4>
-                        <p>  Analyst</p>
+                        <p id="last-job"></p>
                     </div>
                     <div class="sector">
                         <h4>Tecnologías que domina</h4>
-                        <p>HTML, Javascrip, etc etc</p>
+                        <p id="tecnologies"></p>
                     </div>
                     <div class="sector">
                         <h4>Años de experiencia</h4>
-                        <p>#</p>
+                        <p id="years-xp"></p>
                     </div>
                 </div>
             </div>
@@ -92,28 +93,31 @@
                 <i class="fa-solid fa-circle-plus"></i>
             </button>
             <div class="select-exam hidden" id="select-exam">
-                <select name="exams-area" id="area">
-                    <option value="NAO" selected>Seleccione el aréa</option>
-                    <option value="value1">Primera aréa</option>
-                    <option value="value2">Segunda aréa</option>
-                    <option value="value3">Tercera aréa</option>
-                </select>
-                <select name="exams" id="exam" disabled>
+                <select name="exams" id="exam">
                     <option value="NAO" selected>Seleccione el exámen</option>
-                    <option value="value1">Primer exámen</option>
-                    <option value="value2">Segundo exámen</option>
-                    <option value="value3">Tercer exámen</option>
                 </select>
-                <div class="space-button">
-                    <button class="save" id="save" disabled>
+                <div class="space-button" >
+                    <button class="save" id="save" >
                         Guardar
                     </button>
                 </div>
+            </div>
+            <div id="info-exam" class="info-exam hidden">
+                <h3>Exámen:</h3>
+                <h3 id="exam-name"></h3>
             </div>
         </div>
         <div class="footer-section"></div>
     </div>
 
+    <div id="modal" class="modal-background">
+        <div class="modal">
+            <h1 class="modal-title">Exámen añadido con éxito!</h1>
+            <p class="modal-text">
+                No olvides configurar la entrevista.
+            </p>
+        </div>
+    </div>
 
     <script src="../components/header/header-actions.js"></script>
     <script src="../data/dataStorage.js"></script>
