@@ -138,11 +138,16 @@ function getElementosByParam(tabla, nameParam, value){
  function getElemento(tabla, id, valor){
     try{
         let elementos = getElementos(tabla);
+        
         if(elementos.length == 0)
             return null;
         for(let i = 0; i < elementos.length; i++){
-            if(elementos[i][id] == valor)
-                return elementos[i];        }
+            
+            if(elementos[i][id] == valor){
+
+                return elementos[i];      
+            } 
+            }
     }catch(error){
         console.error('Error al obtener elementos',error);
         throw error;

@@ -1,0 +1,50 @@
+label{
+    padding-left: 0;
+}
+.modal{
+    text-align : left
+}
+
+.modal .modal-body{
+    height: 75%;
+    overflow: auto;
+}
+
+.modal .modal-title{
+    height: 10%;
+    overflow: hidden;
+}
+
+.modal .modal-buttons{
+    height: 15%;
+    overflow: hidden;
+}
+
+.modal .modal-body textarea{
+    width: 80%;
+    height: 100px;
+}
+
+.respuesta-input{
+    width: 60%;
+    padding: 10px 10px;
+    margin: 8px 5px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: inline-block;
+}
+.respuesta-radio{
+    
+    display: inline-block;
+}
+.respuesta-borrar{
+    
+    text-align: center;
+    display: inline-block;
+}
+
+.respuesta-borrar i{
+    vertical-align: sub;
+}
