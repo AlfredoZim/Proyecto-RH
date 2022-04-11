@@ -16,19 +16,13 @@
  
  document.getElementById('body').appendChild(divTable);
 
- let typeUsers = document.cookie.split(' ');
- let userName = document.cookie.split('=')[1];
- typeUsers.forEach(element => {
-     let parts = element.split('=');
-     if("UserName" == parts[0])
-         tipoUs = parts[1];
- });
+ 
  
  /**
  * Variable que obtiene y guarda los elementos aspirantes que se encuentran registrados.
  * @author Joel Alcantara
  */
-let elementos = getElementosByParam('aspirante', 'entrevistador', userName);
+let elementos = getElementosByParam('aspirante', 'entrevistador', getUserName());
 
 let ancho = screen.width<=500;
 

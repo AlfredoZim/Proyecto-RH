@@ -4,7 +4,7 @@
  */
 function getUserName(){
     let typeUsers = document.cookie.split(' ');
-    let userName = document.cookie.split('=')[1];
+    let userName = undefined;
     typeUsers.forEach(element => {
         let parts = element.split('=');
         if("UserName" == parts[0])
@@ -29,6 +29,10 @@ function getTipoUsuario(){
     return tipoUs;
 }
 
+/**
+ * Función que valida si esta la sesión y si no redirecciona a el login
+ * @author Joel Alcantara
+ */
 function validaSesion(){
     let typeUser = getTipoUsuario();
     if(typeUser === "RH" || typeUser == "EN" || typeUser  ===  "AS"){

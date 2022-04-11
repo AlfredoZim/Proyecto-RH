@@ -46,6 +46,7 @@ function getAspirante(elementos){
             "promedio" : 0,
             "notaEntrvistador" : '',
             "contratado" : false,
+            "entrevistador" : "",
             "password" : (elementos[1].value + (Math.floor(elementos[4].value*(Math.random()*100))) + elementos[0].value).replace(/ /g, "")
     }
     return aspirante;
