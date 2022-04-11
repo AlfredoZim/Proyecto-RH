@@ -6,14 +6,32 @@ const numeroPreguntas = 10;
 let numeroPregunta = 0;
 let sobreElemento = true;
 
+/**
+ * Funcion que obtiene el elemento por id-
+ * @param {String} id: Nomber del elemento a recuperar. 
+ * @returns 
+ * @author Joel Alcantara
+ */
 function select_id(id) {
     return document.getElementById(id);
 }
   
+/**
+ * Funcion que obtiene el estilo de un elemento
+ * @param {String} id: Nomber del elemento a recuperar. 
+ * @returns 
+ * @author Joel Alcantara
+ */
 function style(id) {
     return select_id(id).style;
 }
 
+/**
+ * Funcion que obtiene una pregunta dentro del listado de preguntas
+ * @param {Number} n: Posicion de la pregunta. 
+ * @returns 
+ * @author Joel Alcantara
+ */
 function escogerPregunta(n) {
     pregunta = listaPreguntas[n];
     select_id("categoria").innerHTML = pregunta.categoria;
@@ -23,6 +41,11 @@ function escogerPregunta(n) {
     desordenarRespuestas(pregunta);
 }
 
+/**
+ * Función que deordenas las respuestas incorrectas y la correcta.
+ * @param {Object} pregunta: Pregunta con sus respuestas 
+ * @author Joel Alcantara
+ */
 function desordenarRespuestas(pregunta) {
     posibles_respuestas = [
       pregunta.respuesta,
@@ -50,6 +73,11 @@ function desordenarRespuestas(pregunta) {
       }
 }
 
+/**
+ * Funcion que inicializa los valores del examen, así como determinar que el aspirante quien esta
+ * realizando la evaluazión ya no podrá volver a realizarla.
+ * @author Joel Alcantara
+ */
 function iniciarExamen(){
     aciertos = 0;
     numeroPregunta = 0;
@@ -59,6 +87,10 @@ function iniciarExamen(){
     inicializaListenMouse();
 }
 
+/**
+ * Función que carga los botones y reglas que se mostrarán en el modal al usuario a realizar el examen.
+ * @author Joel Alcantara
+ */
 function cargaBotonesReglasExamen(){
     let modalElement = select_id('modalExamen');
     if(permitirHacerExamen()){
@@ -115,6 +147,11 @@ function cargaBotonesReglasExamen(){
     }
 }
 
+/**
+ * Función que determina si el aspirante a ingresar ya ha presentado una evaluazión
+ * @returns true si no puede hacerlo false caso contrario.
+ * @author Joel Alcantara
+ */
 function permitirHacerExamen(){
     let elemento = getElemento('aspirante', 'email', getUserName());
     
@@ -124,6 +161,10 @@ function permitirHacerExamen(){
     return false;
 }
 
+/**
+ * Función que selecciona y calcula siguiente pregunta
+ * @author Joel Alcantara
+ */
 function siguientePregunta(){
     let numerosEscogidos = [];
     let numSiguientePregunta = getNumeroSigPregunta(numerosEscogidos);
@@ -132,6 +173,12 @@ function siguientePregunta(){
     escogerPregunta(numSiguientePregunta);
 }
 
+/**
+ * Función que valida no se repitan las preguntas.
+ * @param {Number} escogidos: numeros ya escogidos 
+ * @returns 
+ * @author Joel Alcantara
+ */
 function getNumeroSigPregunta(escogidos){
     let nuevo;
     do {
@@ -141,6 +188,11 @@ function getNumeroSigPregunta(escogidos){
     return nuevo;
 }
 
+/**
+ * Función que selecciona la respuesta de una pregunta
+ * @param {*} id 
+ * @author Joel Alcantara
+ */
 function selecciona_respuesta(id){
     if(id===-1){
         siguientePregunta();
@@ -157,12 +209,20 @@ function selecciona_respuesta(id){
         finalizaEvaluacion();
 }
 
+/**
+ * Función que hace los calculos y seteo de valores al finalizar el examen
+ * @author Joel Alcantara
+ */
 function finalizaEvaluacion(){
     actualizaAspiranteEvaluaciones();
     preparaModalFinalExamen();
     select_id('registered').click();
 }
 
+/**
+ * Función que despliega el modal al final del examen
+ * @author Joel Alcantara
+ */
 function preparaModalFinalExamen(){
     let modalElement = select_id('modalExamen');
     while (modalElement.firstChild) {
@@ -188,6 +248,10 @@ function preparaModalFinalExamen(){
         modalElement.appendChild(aDespues);
 }
 
+/**
+ * Función que inicia el listen para validar donde se encuentra el mouse
+ * @author Joel Alcantara
+ */
 function inicializaListenMouse(){
     let contenedor = select_id('contenedor');
     contenedor.addEventListener("mouseleave", function(evt) {
@@ -195,6 +259,10 @@ function inicializaListenMouse(){
       }, false);
 }
 
+/**
+ * Función que inicia listener para validar que el usuario no utiliza el teclado.
+ * @author Joel Alcantara
+ */
 function inicializaListenTeclado(){
     document.addEventListener('keydown', (event) => {
         var keyValue = event.key;
@@ -204,6 +272,10 @@ function inicializaListenTeclado(){
       }, false);
 }
 
+/**
+ * Función que muestra el modal al iniciar el examen, esto con las reglas especificas para presentarlo.
+ * @author Joel Alcantara
+ */
 function muestraReglas(){
     select_id('registered').click();
     cargaBotonesReglasExamen();
@@ -214,6 +286,7 @@ function muestraReglas(){
  * Función que actualiza el estatus de un aspirante en cuanto a su evaluación.
  * @param {String} idsession: Id de la sessión para actualizarlo.
  * @returns 1 si se modificó el elemento, 0 en otro caso.
+ * @author Joel Alcantara
  */
  function actualizaAspiranteEvaluaciones(){
     

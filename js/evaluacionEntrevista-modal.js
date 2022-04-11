@@ -1,3 +1,8 @@
+/**
+ * Funciones y atributos para los modales de asignar evaluación y entrevistas.
+ * @author Joel Alcantara
+ */
+
 const registry = document.getElementById("registered");
 const modal_registry = document.getElementById("m-register");
 const close_modal_registry = document.getElementById("close");

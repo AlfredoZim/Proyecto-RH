@@ -116,7 +116,7 @@ function getElementosByParam(tabla, nameParam, value){
             return [];
         let cumplen = [];
         for(let i = 0; i < elementos.length; i++){
-            console.log(elementos[i][nameParam] +'--'+value);
+            console.log(elementos[i][nameParam] +'--'+e);
             if(elementos[i][nameParam] == value)
                 cumplen.push(elementos[i]);       
         }
@@ -161,6 +161,7 @@ function getElementosByParam(tabla, nameParam, value){
  * @param {Object} elemento: Objeto con el elemento a reemplazar.
  * @param {Number} index: Posición del elemento a reemplazar.
  * @returns 1 si se modificó el elemento, 0 en otro caso.
+ * @author Joel Alcantara
  */
 function modificaElemento(tabla, elemento, index){
     try{
@@ -180,6 +181,7 @@ function modificaElemento(tabla, elemento, index){
  * @param {Object} elemento: Objeto con el elemento a reemplazar.
  * @param {String} id: Nombre de id del elemento a reemplazar.
  * @returns 1 si se modificó el elemento, 0 en otro caso.
+ * @author Joel Alcantara
  */
  function modificaElementoById(tabla, elemento, id){
     try{

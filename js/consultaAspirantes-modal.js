@@ -1,3 +1,8 @@
+/**
+ * Funciones y datos de los modales para la consulta, captura y modificación de aspirantes.
+ * @author Joel Alcantara
+ */
+
 const registry = document.getElementById("registered");
 const modal_registry = document.getElementById("m-register");
 const close_modal_registry = document.getElementById("close");
