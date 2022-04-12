@@ -200,7 +200,6 @@ const modal = document.getElementById("modal-interview");
 const close_modal_registry = document.getElementById("close");
 
 let elementos = getElementos("aspirante");
-console.log(elementos);
 let listadoHTML = elementos.map(({nombre,especialidad}) => {
     return `<tr>
                 <td>${nombre}</td>

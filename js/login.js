@@ -5,7 +5,7 @@ async function getVals(){
           "id": 1,
           "userName": "J0vani",
           "password": "password123",
-          "typeUs" : "RH"
+          "typeUs" : "EN"
         },
         {
           "id": 2,
@@ -33,7 +33,6 @@ async function getVals(){
   if(userKey){
     return userKey;
   }else{
-    console.log("No estaba estaba")
     localStorage.setItem("userLog", JSON.stringify(data));
     userKey = JSON.parse(localStorage.getItem("userLog"));
   }
@@ -45,7 +44,6 @@ async function getVals(){
 async function searchUser(user,pass){
   let resConsult = await getVals();
 
-  console.log(resConsult)
   let userAndPass = resConsult.users.find(e => e.userName === user)
   
   if(userAndPass != undefined){
@@ -77,7 +75,6 @@ async function searchUser(user,pass){
 
 
 async function login() {
-  console.log("Login")
   let usuario = document.getElementById('user').value;
   let password = document.getElementById('pass').value;
   let result;
@@ -97,7 +94,6 @@ async function login() {
 
   else {
     result = await searchUser(usuario,password);
-    console.log("Results: " + result[1])
     alert(result[0]);
     window.location.href = result[1]; 
   }
