@@ -116,8 +116,8 @@ function getElementosByParam(tabla, nameParam, value){
             return [];
         let cumplen = [];
         for(let i = 0; i < elementos.length; i++){
-            console.log(elementos[i][nameParam] +'--'+e);
-            if(elementos[i][nameParam] == value)
+            //console.log(elementos[i][nameParam] +'--'+e);
+            //if(elementos[i][nameParam] == value)
                 cumplen.push(elementos[i]);       
         }
         return cumplen;

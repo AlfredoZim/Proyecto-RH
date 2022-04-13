@@ -54,6 +54,55 @@ tbody tr:nth-child(odd){
 tbody tr:hover{
     background: rgba(231, 136, 160, .5);
 }
+tbody tr td .btn-add-inter{
+    width: 1.3rem;
+    height: 1.3rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+tbody tr td .btn-add-inter:hover,
+tbody tr td .btn-add-inter:focus{
+    transform: scale(1.1);
+    transition: .2s;
+}
+tbody tr td .btn-add-inter i{
+    font-size: 1.3rem;
+    color: black;
+}
+.modal-background{
+    align-items: center;
+    background-color: rgba(0, 0, 0, .3);
+    display: none;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+.show{
+    display: flex;
+    pointer-events: auto;
+}
+.modal{
+    background-color: #fff;
+    width: 80%;
+    max-width: 100%;
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem .5rem rgba(0, 0, 0, .3);
+    text-align: center;
+}
+.modal .modal-title{
+    margin: 0;
+}
+.modal .modal-text{
+    opacity: 0.8;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
 @media (max-width:992px){
     .container section{
         align-items: center;

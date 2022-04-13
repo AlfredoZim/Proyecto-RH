@@ -41,6 +41,7 @@ function getAspirante(elementos){
             "direccion" : elementos[11].value,
             "descripcionExperiencia" : elementos[12].value,
             "asignadoExamen": 0,
+            "id_Examen": 0,
             "calificacionEntrevista" : 0,
             "calificacionExamen" : 0,
             "promedio" : 0,

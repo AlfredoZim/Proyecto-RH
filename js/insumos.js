@@ -1,4 +1,4 @@
-let banderaInyectar = false;
+let banderaInyectar = true;
 
 /**
  * Funcion que incorpora datos de prueba al inicio de una sesión, en caso de ya existir, 
@@ -13,7 +13,7 @@ function inyectarInsumos(){
         "nombre" : "Hector",
         "paterno" : "Macias",
         "materno" : "Moreno",
-        "email" : "macias@gmail.com",
+        "email" : "aspirante1@gmail.com",
         "edad" : 30,
         "telefono" : 55381229282,
         "universidad" : "Tec de Monterrey",
@@ -23,21 +23,21 @@ function inyectarInsumos(){
         "idiomas" : "Ingles con Tofel",
         "direccion" : "Las jacarandas #293 Int 2 Robleda del Sur, cp 23923, ciudad de matamoros",
         "descripcionExperiencia" : "Desarrollador backend en institutos de investigación de datos.",
-        "asignadoExamen": 1,
+        "asignadoExamen": 0,
         "calificacionEntrevista" : 0,
         "calificacionExamen" : 0,
         "promedio" : 0,
         "notaEntrvistador" : '',
         "contratado" : false,
         "entrevistador" : "",
-        "password" : (elementos[1].value + (Math.floor(elementos[4].value*(Math.random()*100))) + elementos[0].value).replace(/ /g, "")
+        "password" : "123"
     };
 
     let aspiranteDos = {
         "nombre" : "Luis",
         "paterno" : "Robles",
         "materno" : "Lucio",
-        "email" : "ludicolo@gmail.com",
+        "email" : "aspirante2@gmail.com",
         "edad" : 23,
         "telefono" :2281229282,
         "universidad" : "UNAM",
@@ -54,7 +54,7 @@ function inyectarInsumos(){
         "notaEntrvistador" : '',
         "contratado" : false,
         "entrevistador" : "",
-        "password" : (elementos[1].value + (Math.floor(elementos[4].value*(Math.random()*100))) + elementos[0].value).replace(/ /g, "")
+        "password" : "123"
     };
 
     insertarElemento("aspirante", aspiranteUno, "email");

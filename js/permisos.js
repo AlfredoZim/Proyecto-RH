@@ -37,7 +37,6 @@ function validaSesion(){
     let typeUser = getTipoUsuario();
     if(typeUser === "RH" || typeUser == "EN" || typeUser  ===  "AS"){
         console.log(document.cookie.split('=')[1]);
-        console.log("Mostrar NAV correspondiente");
     }else{
         location.href = "../html/Login/index.html";
     }

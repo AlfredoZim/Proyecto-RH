@@ -16,6 +16,7 @@
     text-align: center;
     padding-left: 5%;
     padding-bottom: 5%;
+    overflow: auto;
 }
 
 .divImg {
