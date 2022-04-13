@@ -76,26 +76,26 @@ function getAspirante(elementos){
  * @author Juan Carlos Pérez Trejo
  */
  function getTemas(elementos){
-    let examen = {
+    let tema = {
         
             "id_tema" : elementos[0].value,
             "tema" : elementos[1].value,
             
     }
-    return examen;
+    return tema;
 }
 
 /**
  * Función que genera un objeto del tipo pregunta.
  * @param {HTMLElement} elementos: Arreglo de elementos de los cuales se obtendrá los valores para el objeto a generar. 
- * @returns Objeto tipo examen generado.
+ * @returns Objeto tipo pregunta generado.
  * @author Juan Carlos Pérez Trejo
  */
  function getPregunta(elementos){
     let pregunta = {
         
-            "id_pregunta" : elementos[0].value,
-            "tema" : elementos[1].value,
+            "id_pregunta" : elementos[0],
+            "pregunta" : elementos[1],
             "respuesta_correcta" : elementos[2],
             "posibles_respuestas" : elementos[3]
             
@@ -111,11 +111,11 @@ function getAspirante(elementos){
  * @author Juan Carlos Pérez Trejo
  */
  function getPosibleRespuesta(elementos){
-    let examen = {
+    let posibleRespuesta = {
         
             "id_posible_respuesta" : elementos[0].value,
             "posible_respuesta" : elementos[1].value
             
     }
-    return examen;
+    return posibleRespuesta;
 }

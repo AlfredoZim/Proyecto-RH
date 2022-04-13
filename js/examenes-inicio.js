@@ -52,7 +52,7 @@ let viewRH = `
             </form>
             <div class="divButton">
                 <button onclick="guardarExamen()" class="accept">Guardar Datos</button>
-                <button onclick="guardarExamen2()" class="accept">Guardar y agregar preguntas</button>
+                <button onclick="guardarExamenAP()" class="accept">Guardar y agregar preguntas</button>
                 <button id="close" class="close">Cancelar</button>
             </div>
         </div>
@@ -143,7 +143,7 @@ temas.forEach(tema => {
         //Validamos si se trata de una inserción o una modificación de datos.
         let respuesta = banderaEsModificacion? insertarElemento('examenes', examen, "id_examen"):
             modificaElemento('examenes', examen, examen.id_examen);
-        console.log("respuesta="+respuesta)
+        
         //Validamos los mensaje a mostrar en el modal.
         if(respuesta>0){
 
@@ -160,6 +160,50 @@ temas.forEach(tema => {
     }
 }
 
+
+function guardarExamenAP(){
+    try{
+        //Extraemos los elementos del formulario en un arreglo.
+        let maxid = document.createElement("input")
+        let maxId_val= getMaxId(getElementos("examenes"),"id_examen")
+        console.log("maxId_val="+maxId_val)
+        maxid.value= maxId_val
+        let elementos = [
+            maxid,
+            document.getElementById('nombre'),
+            document.getElementById('tema'),
+            document.getElementById('descripcion'),
+            ""
+        ];
+        
+        //Validamos que todos los elementos contengan información
+        
+        
+        //Mandamos Construit al objeto del elemento.
+        let examen = getExamen(elementos);
+     
+        //calculamos si se trata de modificar o captura inicial.
+       let banderaEsModificacion = indexModificar === -1;
+
+        //Validamos si se trata de una inserción o una modificación de datos.
+        let respuesta = banderaEsModificacion? insertarElemento('examenes', examen, "id_examen"):
+            modificaElemento('examenes', examen, examen.id_examen);
+        
+        //Validamos los mensaje a mostrar en el modal.
+        if(respuesta>0){
+
+            window.location.href = "examenes-preguntas.html?id_examen="+maxId_val
+        }else{
+            document.getElementById('mensajeModal2').innerHTML = 'Este examen ya fue registrado.';
+            document.getElementById('registered2').click();
+            document.getElementById('close2').classList.add('no-reload');
+            
+        }
+    }catch(error){
+        console.error('Error al ingresar examen',error);
+        document.getElementById('mensajeModal').innerHTML = 'No se ha ingresado la información';
+    }
+}
 /**
  * Función que valida si los HTMLElement de un formulario se encuentran vacíos así mismo asigna el mensaje correspondiente.
  * @param {Array} elementos: Arreglo con los HTMLElement del formulario a validar.
@@ -194,7 +238,11 @@ temas.forEach(tema => {
     }
 }
 
-
+/**
+ * Función que valida los datos del examen
+ * @param {Array} id: identificador del elemento a validar.
+ * @author Juan Carlos Perez Trejo
+ */
 function validaElemento(id){
     let elemento = document.getElementById(id);
     elemento.value = elemento.value.toString().trim();
@@ -205,6 +253,10 @@ function validaElemento(id){
         elemMensaje.innerHTML = '';
 }
 
+/**
+ * Función para llenar la tabla de exámenes
+ * @author Juan Carlos Perez Trejo
+ */
 function llenarTabla(){
     const examenes = getElementos("examenes")
     const tabla = document.getElementById("examenes")

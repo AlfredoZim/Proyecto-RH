@@ -48,8 +48,8 @@ let viewRH = `
             </div>
             <div class="divButton modal-buttons">
                 <input id="resetButton" type="reset" value="Borrar información">
-                <button onclick="agregarPregunta()" class="accept">Guardar</button>
-                <button id="close" class="close">Cancelar</button>
+                <button type="button" onclick="agregarPregunta()" class="accept">Guardar</button>
+                <button type="button" id="close" class="close">Cancelar</button>
             </div>
             </form>
         </div>
@@ -74,11 +74,20 @@ const posiblesResp = document.getElementById("posibles-respuesas");
 const modal_registry = document.getElementById("m-register");
 const close_modal_registry = document.getElementById("close");
 const reset = document.getElementById("resetButton");
-let examen= getElemento("examenes", "id_examen", "1")
+var params = getSearchParameters();
+console.log("params="+params.id_examen)
+let examen= getElemento("examenes", "id_examen", params.id_examen)
 console.log(examen)
 var examenes =[]
-const preguntas = examen.preguntas
-llenarTabla(preguntas)
+let preguntas = examen.preguntas
+
+if(preguntas && preguntas.length > 0) {
+    console.log("preguntas="+preguntas.length)
+    llenarTabla(preguntas)
+}
+else{
+    preguntas=[]
+}
 var pregunta={
     
 };
@@ -120,8 +129,68 @@ let posibles_resp =[]
 
 function agregarPregunta(){
     try{
+        let posiblesRespuestasInput= document.querySelectorAll(".modal-body .respuesta-input")
+        console.log(posiblesRespuestasInput.length)
+        let posiblesRespuestas = []
+        let contPosResp = 1
+        let preguntaTexto= document.getElementById("pregunta")
+        posiblesRespuestasInput.forEach(element => {
+            console.log("posible respuesta="+element.value)
+            
+            let posibleRespuesta= {
+                "id_posible_respuesta" : contPosResp,
+                "posible_respuesta" : element.value
+            }
+            posiblesRespuestas.push(posibleRespuesta)
+            contPosResp++;
+        });
+        console.log(posiblesRespuestas)
+        let respuestasRadio = document.querySelectorAll(".modal-body .respuesta-radio")
+        console.log("respuestaCorrecta="+respuestasRadio.length)
+        let cont=1
+        let respuestaCorrecta = -1
+        respuestasRadio.forEach(element => {
+            console.log("posible respuesta="+cont)
+            console.log("checked="+element.checked)
+            if(element.checked){
+                respuestaCorrecta=cont
+            }
+            cont++
+        });
+        console.log("respuesta correcta es="+respuestaCorrecta)
+        if(posiblesRespuestas.length > 0 && respuestaCorrecta > -1){
+            console.log("sigue")
+            console.log(respuestaCorrecta)
+            console.log(getMaxId(preguntas))
+            let pregunta = {
         
-        
+                "id_pregunta" : getMaxId(preguntas,"id_pregunta"),
+                "pregunta" : preguntaTexto.value,
+                "respuesta_correcta" : respuestaCorrecta,
+                "posibles_respuestas" : posiblesRespuestas
+           }
+
+           console.log(pregunta)
+           preguntas.push(pregunta)
+           console.log("preguntas.length="+preguntas.length)
+           console.log(preguntas)
+           console.log(getMaxId(preguntas,"id_pregunta"))
+           let examenNuevo= {...examen}
+           examenNuevo.preguntas= preguntas
+           console.log(examenNuevo)
+           let result =modificaElementoById("examenes", examenNuevo, "id_examen")
+           console.log("result="+result)
+           if(result == 1){
+                window.location.href = "examenes-preguntas.html?id_examen="+examenNuevo.id_examen
+           }else{
+            console.error('Error al ingresar examen',error);
+            document.getElementById('mensajeModal').innerHTML = 'No se ha ingresado la información';
+           }
+        }else{
+            console.log("no sigue")
+            console.error('Error al ingresar examen',error);
+            document.getElementById('mensajeModal').innerHTML = 'No se ha ingresado la información';
+        }
     }catch(error){
         console.error('Error al ingresar examen',error);
         document.getElementById('mensajeModal').innerHTML = 'No se ha ingresado la información';
@@ -153,10 +222,54 @@ function llenarTabla(preguntas){
         let divPregunta='<div style="display:block;width:100%;heigth: 100%;margin-bottom:10px;margin-top:10px;padding:10px 10px;"><div >'+element.pregunta+'</div>'
         let respuestas= '<div style="display: inline-block;width: 100%;">'
         element.posibles_respuestas.forEach(element1 => {
-            respuestas +='<div style="display: inline-block;width: 50%;"><input type="checkbox" /> '+element1.posible_respuesta+' </div>'
+            if(element.respuesta_correcta == element1.id_posible_respuesta){
+                console.log("respuesta correcta")
+                respuestas +='<div style="display: inline-block;width: 50%;"><input type="checkbox" checked disabled/> '+element1.posible_respuesta+' </div>'
+            }else{
+
+                respuestas +='<div style="display: inline-block;width: 50%;"><input type="checkbox"  disabled/> '+element1.posible_respuesta+' </div>'
+            }
         });
         respuestas +="</div>"
         divPregunta+=respuestas+'</div>'
         div.innerHTML += divPregunta
     });
+}
+
+function getSearchParameters() {
+    var prmstr = window.location.search.substr(1);
+    return prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {};
+}
+
+function transformToAssocArray( prmstr ) {
+    var params = {};
+    var prmarr = prmstr.split("&");
+    for ( var i = 0; i < prmarr.length; i++) {
+        var tmparr = prmarr[i].split("=");
+        params[tmparr[0]] = tmparr[1];
+    }
+    return params;
+}
+
+/**
+ * Función que encuentra el ultimo id ingresado en la tabla requerida
+ * @param {Array} elementos: Arreglo de elementos a donde buscar el max id.
+ * @param {Array} id: identificador de la tabla.
+ * @returns 1 si no se encuetra el arreglo o el arreglo esta vacio, o retorna el max id .
+ * @author Juan Carlos Perez Trejo
+ */
+ function getMaxId(elementos,id){
+     console.log("elementos.length="+elementos.length)
+     if(elementos.length == 0){
+         return 1;
+     }else{
+        let maxId=Math.max(...elementos.map(element => element[id]))
+        console.log("maxId=" +maxId)
+        if(maxId == -Infinity){
+            return 1;
+        }else{
+            return maxId+1
+        }
+     }
+   
 }
